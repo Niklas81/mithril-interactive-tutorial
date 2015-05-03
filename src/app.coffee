@@ -43,13 +43,15 @@ Page = {
         ]),
         m("p", "Let\'s check that everything is working.
           The title of this section should be capitalized.
-          In the editor panel, change \'setup\' to \'Setup\' and save with CTRL-S or COMMAND-S.
+          In the editor panel, change \"setup\" to \"Setup\" and save with CTRL-S or COMMAND-S.
           Soon the browser window should reflect the change."
         ),
         m("h2", "Next Step:"),
         m("p", m.trust("In your terminal, type CTRL-C to stop Browserfy.
-          Then enter<br />git&nbspco&nbsptutorial/coffee-jade-stylus/Lesson2<br />
-          Now restart the tutorial with \'npm&nbsprun&nbsptutorial\'.
+          Then enter<br /><br />
+          $ git co tutorial/coffee-jade-stylus/Lesson2<br /><br />
+          Now restart the tutorial with<br /><br />
+          $ npm run tutorial.<br /><br />
           A new browser tab should open up. You'll need to open
           DevTools again with CTRL-i or COMMAND-i. You may want to close the tab
           from the previous lesson to avoid confusion.")
