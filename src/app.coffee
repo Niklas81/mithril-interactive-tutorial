@@ -6,56 +6,54 @@
 Page = {
   view: ()->
     return m(".page", [
-      m("h1.title", "Mithril Interactive Tutorial"),
-      m("h2.subtitle", "A step-by-step intoduction to the Mithril MVC framework"),
-      m(".content", [
-        m("h3.about", "About Mithril"),
-        m("p", [
-          "If you wish to know what Mithril is all about,
-          why you should be using it, and where to find out more,
-          everything you need is on the ",
-          m("a[href=http://mithril.js.org]", "Mithril home page.")
-        ]),
-        m("p", [
-          "This tutorial is located on Github. If you have not read the README file, ",
-          m("a[href=https://github.com/pelonpelon/mithril_tutoral]", "go there now before continuing")
-        ]),
-        m("h3.requirements", "Requirements"),
-        m("p",
-          "This tutrial assumes that you are familiar with HTML and CSS,
-          and have a working knowlege of javascript.
-          You will need to use the Google Chrome browser
-          and know how to open Chrome DevTools. The live editing aspect
-          of this tutorial is not yet available in Firefox or Safari
-          developer tools."
-        ),
-        m("h3.setup", "setup"),
+      m("h1.title", "Lesson 1"),
+      m("h2.subtitle", "Hello World"),
+      m(".container", [
+        m("p", "In DevTools, open src/app.coffee."),
+        m("p", "app.coffee is the file that produced
+          the web page you are reading now. It is commented with
+          information to help you understand how Mithril works."),
+        m("h3", "Components"),
+        m("h4", "Components are the building blocks of your app.")
+        m("p", "Notice the object called \'Page\'. It\'s a component.
+          The header and footer can be components.
+          Each widget in a sidebar can be a component.
+          A menu can be a component made up of link components.
+          The only requirements for a component are that it be an object and
+          have one property called \'view\'. The value of view
+          must be a function that returns a Mithril template.
+          The Page object is the only component on this page and it contains
+          only one parameter named \'view\'."),
+        m("h3", "The View"),
+        m("h4", "The view produces what finally appears in the browser window.
+          The view template consists of calls to the m() function.")
+        m("p", "The first parameter of the m() function
+          designates an HTML tag such as \'h1\' or \'p\.'
+          If CSS classes or id's are found without an HTML tag,
+          Mithril converts the parameter into a \'div\' tag and appends the class or id.
+          The .page class is an example of this.
+          Compare the first line of the view function
+          to the resulting HTML in the Elements panel.
+          Look for <div class=\"page\">."),
+        m("p", "The last parameter of the m() function
+          is the inner part of the HTML tag.
+          As with HTML, this can be text or more HTML.
+          In Mithril, more HTML means more m() calls. When the tag
+          needs to contain more than a string, the parameter must be an array.
+          In app.coffee, (div).page and (div).container and the unordered list
+          \"ul\" each contain arrays
+          of more m() calls."),
+        m("hr"),
         m("ul", [
-          m("li", "Open DevTools."),
-          m("li", "Move the DevTools window to the right of the browser window."),
-          m("li", "Click on the Sources tab."),
-          m("li", "Open DevTool\'s Settings, choose Workspace, then Add folder..."),
-          m("li", "Find the src folder of this tutorial and click Select."),
-          m("p", "You should now see the src folder at the bottom 
-            of the Sources file browser. Open app.coffee inside the src folder.
-            In the editor panel on the right, you should see the Mithril file that produces this page."
-          )
+          m("li", "Read the comments in app.coffee."),
+          m("li", "Notice that m(\"hr\") requires no further parameters."),
+          m("li", "The last parameter to m() must be a string or an array.
+            We'll discover ways of adding raw HTML in a later lesson."), 
         ]),
-        m("p", "Let\'s check that everything is working.
-          The title of this section should be capitalized.
-          In the editor panel, change \"setup\" to \"Setup\" and save with CTRL-S or COMMAND-S.
-          Soon the browser window should reflect the change."
-        ),
-        m("h2", "Next Step:"),
-        m("p", m.trust("In your terminal, type CTRL-C to stop Browserfy.
-          Then enter<br /><br />
-          $ git co tutorial/coffee-jade-stylus/Lesson2<br /><br />
-          Now restart the tutorial with<br /><br />
-          $ npm run tutorial.<br /><br />
-          A new browser tab should open up. You'll need to open
-          DevTools again with CTRL-i or COMMAND-i. You may want to close the tab
-          from the previous lesson to avoid confusion.")
-        )
+        m("p", "Now move on to the next lesson. In the terminal type: CTRL-C. Then enter:"),
+        m("code", "$ git co CJS-Lesson2"),
+        m("br"),
+        m("code", "$ npm start tutorial")
       ])
     ])
 }
