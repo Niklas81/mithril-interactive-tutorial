@@ -2,11 +2,17 @@
 # m.component() can be called anywhere m() can.
 # We want to be able to customize the header and footer,
 # but we want the logo to remain the same.
-# So we don't make a component out of the logo, we hard code it into Page.
+# For now, we don't make a component out of the logo,
+# we hard code it into Page.
 
 Page = {
   view: () ->
-    return [ m(".logo", [m("span", "○"), "Mithril"]),
+    return [ m("a.mithril[href=http://mithril.js.org]", [
+        m(".logo", [
+          m("span", "○"), 
+          "Mithril"
+        ]),
+      ]),
       m(".container", [
         m.component(Header),
         m.component(Content),
