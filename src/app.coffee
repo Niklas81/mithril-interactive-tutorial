@@ -1,7 +1,7 @@
 # This is the entry point into our app.
-# Page will fill up the entire body of our app.
-# Since a component need only be an object with a view function,
+# A component need only be an object with a view function.
 # Page qualifies as a component.
+# The Page component will fill up the entire body of our app.
 
 Page = {
   view: ()->
@@ -14,11 +14,13 @@ Page = {
           the web page you are reading now. It is commented with
           information to help you understand how Mithril works."),
         m("h3", "Components"),
-        m("h4", "Components are the building blocks of your app.")
-        m("p", "Notice the object called \'Page\'. It\'s a component.
+        m("h4", "The building blocks of your app.")
+        m("p", "In the code editor of DevTools,
+          notice the object called \'Page\'. It\'s a component.
           The header and footer can be components.
           Each widget in a sidebar can be a component.
-          A menu can be a component made up of link components.
+          A menu can be a component made up of links
+          that are themselves individual components.
           The only requirements for a component are that it be an object and
           have one property called \'view\'. The value of view
           must be a function that returns a Mithril template.
@@ -39,16 +41,14 @@ Page = {
           is the inner part of the HTML tag.
           As with HTML, this can be text or more HTML.
           In Mithril, more HTML means more m() calls. When the tag
-          needs to contain more than a string, the parameter must be an array.
+          needs to contain more than one string or one call to m(),
+          the parameter must be an array with any combination of those things.
           In app.coffee, (div).page and (div).container and the unordered list
-          \"ul\" each contain arrays
-          of more m() calls."),
+          \"ul\" each contain arrays."),
         m("hr"),
         m("ul", [
           m("li", "Read the comments in app.coffee."),
-          m("li", "Notice that m(\"hr\") requires no further parameters."),
-          m("li", "The last parameter to m() must be a string or an array.
-            We'll discover ways of adding raw HTML in a later lesson."), 
+          m("li", "Notice that m(\"hr\") and m(\"br\") require no further parameters."),
         ]),
         m("p", "Now move on to the next lesson. In the terminal type: CTRL-C. Then enter:"),
         m("code", "$ git co CJS-Lesson2"),
