@@ -10,8 +10,14 @@ html
   body
     | Welcome to Mithril
 
-    // You will mount your app on the body or some descendent element
-    // To ensure that that element exists, load your main script at the end of the body
+    // You will mount your app on document.body
+    // or any descendent element.
+    // This tutorial is mounted on the body,
+    // so the text "Welcome to Mithril" (and these comments)
+    // will be replaced with the tutorial app.
+    // The browser will load script tags before m.mount() is called.
+    // To ensure that that the moounting element exists,
+    // load your main script at the end of the body.
 
     script(src='bundle.js')
 
