@@ -4,12 +4,13 @@
   "description": "Step-by-step lessons on using the Mithril MVC framework",
   "main": "app.js",
   "scripts": {
-    "tutorial": "npm run watch-js & npm run watch-jade & npm run watch-stylus & npm run serve",
+    "tutorial": "npm run copy-assets && npm run watch-js & npm run watch-jade & npm run watch-stylus & npm run serve",
+    "copy-assets": "cp -R src/assets build/",
     "serve": "live-server ./build/",
     "watch-jade": "jade -w src/ -o build/",
     "watch-stylus": "stylus -w src/styles -o build/styles",
     "watch-js": "watchify src/app.coffee -v -d -t coffeeify -o build/bundle.js --list",
-    "build": "browserify src/app.coffee -t coffeeify -o build/bundle.js && jade src/ -o build/ && stylus src/ -o build/"
+    "build": "npm run copy-assets && browserify src/app.coffee -t coffeeify -o build/bundle.js && jade src/ -o build/ && stylus src/ -o build/"
   },
   "devDependencies": {
     "browserify": "",
