@@ -1,64 +1,90 @@
-# This is the entry point into our app.
-# Page will fill up the entire body of our app.
-# Since a component need only be an object with a view function,
-# Page qualifies as a component.
+# Page is a component containing nested components.
+# m.component() can be called anywhere m() can.
+# We want to be able to customize the header and footer,
+# but we want the logo to remain the same.
+# So we don't make a component out of the logo, we hard code it into Page.
 
 Page = {
-  view: ()->
-    return m(".page", [
-      m("h1.title", "Lesson 1"),
-      m("h2.subtitle", "Hello World"),
+  view: () ->
+    return [ m(".logo", [m("span", "○"), "Mithril"]),
       m(".container", [
-        m("p", "In DevTools, open src/app.coffee."),
-        m("p", "app.coffee is the file that produced
-          the web page you are reading now. It is commented with
-          information to help you understand how Mithril works."),
-        m("h3", "Components"),
-        m("h4", "Components are the building blocks of your app.")
-        m("p", "Notice the object called \'Page\'. It\'s a component.
-          The header and footer can be components.
-          Each widget in a sidebar can be a component.
-          A menu can be a component made up of link components.
-          The only requirements for a component are that it be an object and
-          have one property called \'view\'. The value of view
-          must be a function that returns a Mithril template.
-          The Page object is the only component on this page and it contains
-          only one parameter named \'view\'."),
-        m("h3", "The View"),
-        m("h4", "The view produces what finally appears in the browser window.
-          The view template consists of calls to the m() function.")
-        m("p", "The first parameter of the m() function
-          designates an HTML tag such as \'h1\' or \'p\.'
-          If CSS classes or id's are found without an HTML tag,
-          Mithril converts the parameter into a \'div\' tag and appends the class or id.
-          The .page class is an example of this.
-          Compare the first line of the view function
-          to the resulting HTML in the Elements panel.
-          Look for <div class=\"page\">."),
-        m("p", "The last parameter of the m() function
-          is the inner part of the HTML tag.
-          As with HTML, this can be text or more HTML.
-          In Mithril, more HTML means more m() calls. When the tag
-          needs to contain more than a string, the parameter must be an array.
-          In app.coffee, (div).page and (div).container and the unordered list
-          \"ul\" each contain arrays
-          of more m() calls."),
-        m("hr"),
-        m("ul", [
-          m("li", "Read the comments in app.coffee."),
-          m("li", "Notice that m(\"hr\") requires no further parameters."),
-          m("li", "The last parameter to m() must be a string or an array.
-            We'll discover ways of adding raw HTML in a later lesson."), 
-        ]),
-        m("p", "Now move on to the next lesson. In the terminal type: CTRL-C. Then enter:"),
-        m("code", "$ git co CJS-Lesson2"),
-        m("br"),
-        m("code", "$ npm start tutorial")
+        m.component(Header),
+        m.component(Content),
+        m.component(Footer)
+      ])
+    ]
+}
+
+# In the second argument to m(), the object contains the attribute "title".
+# This is the equivalent to:
+# <div class="header" title="This is the header">...</div>
+# The third argument, an array, contains everything that ... represents.  
+
+Header = {
+  view: () ->
+    return m(".header", { title: "This is the header" },[
+      m("h1.title", "Lesson 2"),
+      m("h2.subtitle", "Enhancing the View")
+    ])
+}
+
+Content = {
+  view: () ->
+    return m(".content", [
+      m("h3", "First, a little style"),
+      m("p", m.trust("We've given our app a modern look by adding a link to the
+        <a href='http://getbootstrap.com/'>Bootstrap</a> CSS library
+        in the header tag of <code>index.jade</code>.
+        At the top of this page, we try to duplicate
+        the <strong>Mithril</strong> logo
+        from the home page, which is not an image, but some fancy CSS.
+        So we've added a second link to our own styles:
+        <code>styles/main.styl</code>.
+        We will learn how to add styles with javascript in a later lesson.")),
+      m("h3", "View Template Attributes"),
+      m("p", m.trust("The <code>m()</code> function optionally
+        takes a second argument:
+        an object that contains attributes that can affect
+        the resulting HTML. In the Header component
+        we use the HTML <strong>title</strong> attribute.
+        Hover over the word <strong>Lesson</strong> at the top of this page
+        and a tool-tip should pop up. We'll learn about other types
+        of attributes in later lessons. ")),
+      m("h3", "m.trust()"),
+      m("p", "So far, we've only put strings in our views. Adding any kind of
+        HTML results in raw HTML to be printed, verbatim:
+        <h1>Hello World</h1>.
+        Mithril provides the m.trust() function,
+        which allows for raw HTML to be coded into the view,
+        yet it prints out
+        as we expect. In the editor panel, notice the HTML code
+        used in the first paragraph of the view.
+        This would not be possible without m.trust().
+        In the next lesson we'll learn to use variables 
+        in our views. m.trust() doesn't understand variables.")
+      m("hr"),
+      m("h3", "Refactoring Components"),
+      m("p", "In the next lesson, we will refactor our Page component,
+        putting the nested components, Header, Content, and Footer,
+        each in their own files. Notice in the code editor, we've
+        already done some of the work by factoring out each component
+        into separate objects on the page. "),
+    ])
+}
+
+Footer = {
+  view: () ->
+    return m(".footer", [
+      m("hr"),
+      m("h2.title", "Next Lesson: The Controller"),
+      m("ul.setup", [
+        m("li", m.trust("In the terminal, stop the tutorial with
+          <code>CTRL-c</code> or <code>COMMAND-c</code>.")),
+        m("li", m.trust("Enter <code>$ git co CJS-Lesson3</code>.")),
+        m("li", m.trust("Restart the tutorial with <code>$ npm run tutorial</code>"))
       ])
     ])
 }
 
-# We mount (inject) Page into to the body tag of the document.
-# Anything that might have been there before will be replaced.
 
 m.mount(document.body, Page)
