@@ -16,7 +16,7 @@ The tutorial allows you to live-edit the source code with the help of Browserfy,
 ## Setup
 
 - Clone the repo: `$ git clone https://github.com/pelonpelon/mithril-interactive-tutorial.git`
-- cd into the `mithril-interactive-tutorial` folder.
+- Switch to the `mithril-interactive-tutorial` folder.
 - Install dependencies: `$ npm install`
 - Start the tutorial: `$ npm run tutorial`
  
