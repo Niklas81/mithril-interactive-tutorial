@@ -28,12 +28,18 @@ For each lesson:
 
 - Read the guide in the browser window
 - Read the comments in the DevTools editor pane (comments change with each lesson)
-- Experiment in DevTools' live editor, debugger, console, etc
-- Change to the next lesson
+- Experiment in the DevTools live editor, debugger, console, etc
+- Load the next lesson
 
 ## Current State of the Tutorial
 
-This tutorial is a work in progress. I plan to add lessons as time provides. I heartily welcome suggestions and criticism. If you find mistakes, and you will, please submit a pull request. 
+This tutorial is a work in progress. I plan to add new lessons as time provides. I heartily welcome suggestions and criticism. If you find mistakes, and you will, please submit a pull request. 
+
+## Teaching Philosophy
+
+- Each lesson builds on the last. Concepts are intentionally left out so as to focus on a few core concepts. Later lessons should fill in the gaps.
+- This tutorial takes a "Components First" approach. By the popularity of React and Web Components it seems clear that components and their role in
+the structure of MVC apps is readily comprehensible to most developers.
 
 ## Credits
 
