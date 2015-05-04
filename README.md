@@ -33,7 +33,8 @@ For each lesson:
 
 ## Current State of the Tutorial
 
-This tutorial is a work in progress. I plan to add new lessons as time provides. I heartily welcome suggestions and criticism. If you find mistakes, and you will, please submit a pull request. 
+This tutorial is a work in progress. I plan to add new lessons as time provides. I heartily welcome suggestions and criticism.
+If you find mistakes, and you will, please submit a comment or pull request. 
 
 ## Teaching Philosophy
 
