@@ -11,14 +11,14 @@ There are three versions of the tutorial, each utilizing different technologies:
 
 ## Requirements
 
-The tutorial allows you to live-edit the source code with the inclusion of Browserfy, Watchify, and Live Reload. You will need `npm` to install these libraries. To maximize interaction, the tutorial relies on the `Google Chrome` web browser and the `DevTools` within. Firefox and Safari developer tools are not yet capable of live editing. 
+The tutorial allows you to live-edit the source code with the help of Browserfy, Watchify, and Live Reload. You will need `npm` to install these libraries. To maximize interaction, the tutorial relies on the `Google Chrome` web browser and the `DevTools` within. Firefox and Safari developer tools are not yet capable of live editing. 
 
 ## Setup
 
-- clone the repo: `$ git clone https://github.com/pelonpelon/mithril-interactive-tutorial.git`
-- cd into the `mithril-interactive-tutorial` folder
-- install dependencies: `$ npm install`
-- start the tutorial: `$ npm run tutorial`
+- Clone the repo: `$ git clone https://github.com/pelonpelon/mithril-interactive-tutorial.git`
+- cd into the `mithril-interactive-tutorial` folder.
+- Install dependencies: `$ npm install`
+- Start the tutorial: `$ npm run tutorial`
  
 The Introduction to the tutorial explains how to set up the browser window and DevTools in a vertically split window. This is the setup that works best for me, but arrange your dev environment however it's most comfortable. 
 
