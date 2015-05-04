@@ -48,11 +48,15 @@ Page = {
         m("hr"),
         m("ul", [
           m("li", "Read the comments in app.coffee."),
+          m("li", "Study the code. It should all make sense to you."),
           m("li", "Notice that m(\"hr\") and m(\"br\") require no further parameters."),
         ]),
-        m("p", "Now move on to the next lesson. In the terminal type: CTRL-C. Then enter:"),
+        m("hr"),
+        m("h2.title", "Next Lesson: Enhancing the View"),
+        m("li", "In the terminal, stop the tutorial with CTRL-c or COMMAND-c."),
+        m("li", "Load the next lesson with:"),        
         m("code", "$ git co CJS-Lesson2"),
-        m("br"),
+        m("li", "Restart the tutorial with:"),        
         m("code", "$ npm start tutorial")
       ])
     ])
@@ -62,3 +66,4 @@ Page = {
 # Anything that might have been there before will be replaced.
 
 m.mount(document.body, Page)
+
