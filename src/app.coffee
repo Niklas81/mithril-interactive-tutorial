@@ -1,19 +1,18 @@
 # Mithril Interactive Tutorial - Introduction
 #
 # This is the entry point into our app.
-# Page will fill up the entire body of the app.
-# Since a component need only be an object with a view function,
-# Page qualifies as a component.
+# the App will fill up the entire body tag.
 
-Page = {
+App = {
   view: ()->
-    return m(".page", [
+    return m(".page", {style:{maxWidth: '500px'; margin: '0 auto'} }, [
 
-      m("h1.title", "Mithril Interactive Tutorial"),
-      m("h2.subtitle", "A step-by-step intoduction to the Mithril MVC framework"),
+      m(".header", [
+        m("h1.title", "Mithril Interactive Tutorial"),
+        m("h2.subtitle", "Introduction"),
+      ]),
 
       m(".content", [
-
         m("h3.about", "About Mithril"),
         m("p", [
           "If you wish to know what Mithril is all about,
@@ -27,7 +26,6 @@ Page = {
           m("a[href=https://github.com/pelonpelon/mithril_tutoral]",
             "go there now before continuing")
         ]),
-
         m("h3.requirements", "Requirements"),
         m("p",
           "This tutrial assumes that you are familiar with HTML and CSS,
@@ -37,13 +35,12 @@ Page = {
           of this tutorial is not yet available in Firefox or Safari
           developer tools."
         ),
-
         m("h3.setup", "setup"),
         m("ul", [
           m("li", [
             "Open DevTools:",
-            m("p", "linux: ⌃⌥–i"),
-            m("p", "osx: ⌘⌥–i")
+            m("p", "linux: ⌃⌥ + I"),
+            m("p", "osx: ⌘⌥ + I")
           ]),
           m("li", "Move the DevTools window to the right of the browser window
             by clicking the window icon in the upper right toolbar. "),
@@ -67,28 +64,30 @@ Page = {
           )
         ]),
         m("hr"),
-
         m("p", "Let\'s check that everything is working.
           The title of the next section should be capitalized.
           In the editor panel, change \"next\" to \"Next\"
           and \"steps\" to \"Steps\".
-          Save with CTRL-S or COMMAND-S.
+          With the blinking cursor still in the editor pane,
+          save with CTRL-S or CMD-S.
           The changes are saved to disk and
           soon the browser window should reflect the change."
         ),
-
-        m("h2", "next steps:"),
-        m("ul", [
-          m("li", m("p", "In your terminal, type CTRL-C to stop the tutorial.")),
-          m("li", [
-            "Load the first lesson by entering:",
-            m("p", m("code", "$ git co CJS-Lesson1"))
-          ]),
-          m("li", [
-            "Restart the tutorial by entering:",
-            m("p", m("code", "$ npm run tutorial"))
+        
+        m(".footer", [
+          m("h2", "next steps:"),
+          m("ul", [
+            m("li", m("p", "In your terminal, type CTRL-C to stop the tutorial.")),
+            m("li", [
+              "Load the first lesson by entering:",
+              m("p", m("code", "$ git co CJS-Lesson1"))
+            ]),
+            m("li", [
+              "Restart the tutorial by entering:",
+              m("p", m("code", "$ npm run tutorial"))
+            ])
           ])
-        ])
+        ]),
       ])
     ])
 }
@@ -96,5 +95,5 @@ Page = {
 # We mount (inject) Page into to the body tag of the document.
 # Anything that might have been there before will be replaced.
 
-m.mount(document.body, Page)
+m.mount(document.body, App)
 
