@@ -1,14 +1,9 @@
-# Page is a not component although it is an object
+# App is a not component although it is an object
 # with a view. A component view cannot return an Array.
 # It must return a virtual element: the result of a call to m().
-
 # m.component() can be called anywhere m() can.
-# We want to be able to customize the header and footer,
-# but we want the logo to remain the same.
-# For now, we don't make a component out of the logo,
-# we hard code it into Page.
 
-Page = {
+App = {
   view: () ->
     return [
       m.component(Logo), 
@@ -123,4 +118,4 @@ Footer = {
 }
 
 
-m.mount(document.body, Page)
+m.mount(document.body, App)
