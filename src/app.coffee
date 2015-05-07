@@ -1,13 +1,19 @@
+# We could add Mithril to our app with a link tag in the header,
+# But here we've chosen to include it in src/bundle.js with "require"
+
+m = require "mithril"
+
 # This is the entry point into our app.
 
 App = {
   view: ()->
-    
+
+# We haven't included a stylesheet yet, so we're adding inline styles here.     
 # The style attribute will be explained in the next lesson.
 
     return m(".page", { style: {maxWidth: '480px', margin: '0 auto'} }, [
 
-# Compare this template fragment to the resulting div.header
+# Compare this template fragment to the resulting <div class=header...
 # in the Elements pane.
     
       m(".header", [
@@ -96,7 +102,7 @@ App = {
     ])
 }
 
-# We mount (inject) Page into to the body tag of the document.
+# We mount (inject) App into to the body tag of the document.
 # Anything that might have been there before will be replaced.
 
 m.mount(document.body, App)
