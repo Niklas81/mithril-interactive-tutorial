@@ -38,7 +38,7 @@ If you find mistakes, and you will, please submit a comment or pull request.
 
 ## Teaching Philosophy
 
-- Each lesson builds on the last. Concepts are intentionally left out so as to focus on a few core concepts. Later lessons should fill in the gaps.
+- Each lesson builds on the last. Some details are intentionally left out so as to focus on a few core concepts. Later lessons should fill in the gaps.
 - This tutorial takes a "Components First" approach. By the popularity of React and Web Components it seems clear that components and their role in
 the structure of MVC apps is readily comprehensible to most developers.
 
