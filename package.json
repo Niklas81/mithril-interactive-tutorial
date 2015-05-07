@@ -20,7 +20,8 @@
     "jade": "",
     "live-server": "",
     "stylus": "",
-    "watchify": ""
+    "watchify": "",
+    "mithril": "~0.2.0"
   },
   "author": "pelonpelon",
   "license": "MIT"
