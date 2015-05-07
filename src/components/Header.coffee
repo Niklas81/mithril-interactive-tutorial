@@ -1,3 +1,5 @@
+m = require "mithril"
+
 # We saw in the pevious lesson
 # the HTML title attribute in the
 # attribute object, the second argument of m()

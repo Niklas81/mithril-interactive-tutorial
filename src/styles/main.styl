@@ -1,36 +1,53 @@
+.page
+  max-width: 500px
+  margin: 0 auto
+
 .logo
-  font-size: 1em
-  font-family: Georgia
-  font-style: italic
-  text-align: right
-  text-decoration: none
-  background: #5a5
-  color: white
-  padding: 5px 5px 0 5px
-
-.logo:hover, .logo span:hover, a.mithril:hover {
-  color: lightblue
-  text-decoration: none
-}
-
-.logo span
   height: 30px
-  font-size: 3em
-  line-height: .8em
-  font-family: initial
-  font-style: initial
+  padding: 5px 5px 0 5px
+  text-decoration: none
+  line-height: 2rem
+  background: #5a5
 
-.logo ::before
-  content: "\25CB"
-  position: absolute
-  margin: -0.17em 0 0 -0.10em
+  .mit
+    float: left
+    font-size: 2rem
+    color: white
 
-.logo ::after
-  content: "\25CB"
-  position: absolute
-  margin: -0.17em 0 0 -0.5em
+  .mithril
+    float: right
+    margin-right: 5px
+    font-size: 1.5rem
+    font-family: Georgia
+    font-style: italic
+    text-align: right
+    color: white
+
+  .icon
+    float: right
+    font-size: 2.2rem
+    color: white
+
+  .icon::before
+    content: "\25CB"
+    position: absolute
+    margin: -0.17em 0 0 -0.10em
+
+  .icon::after
+    content: "\25CB"
+    position: absolute
+    margin: -0.17em 0 0 -0.5em
+
+  .mit:hover, .mithril:hover, .icon:hover
+    color: lightblue
+    text-decoration: none
+
+.header, .footer
+  background-color: wheat
+  padding: 10px 
 
 .dothis
+  margin: 20px 30px 20px 20px
   color: #5a5
   background-color: lightgoldenrodyellow 
   font-weight: 800

@@ -1,5 +1,7 @@
 # Lesson 3 - Passing Data to the View
 
+m = require "mithril"
+
 # Page is composed of 4 components.
 # First we must require the components
 # then namespace them (set them to unique variables).
