@@ -4,12 +4,14 @@ module.exports = {
   view: () ->
     return m(".content", [
       m("p", "If the view could only hold static data,
-        there we be no need to learn Mithril. We can funnel data into the view
+        there would be no need to learn Mithril.
+        We can funnel data into the view
         from several sources. As we shall see, the view can print the data
-        or alter it to enhance it's presentation TODO: REMOVE DECIMAL PLACES! ")
+        or alter it to enhance it's presentation
+        TODO: REMOVE DECIMAL PLACES! ")
       m("h3", "Data from the contoller"),
       m(".dothis", "see src/app.coffee"),
-      m("p", m.trust("<br>In addition to the <strong>view function</strong>,
+      m("p", m.trust("In addition to the <strong>view function</strong>,
         a component often contains a <strong>controller function</strong>.
         Like the view, it returns an object.
         Among its many responsibilities, a controller may pass data
@@ -17,7 +19,8 @@ module.exports = {
         The view receives the returned object from the controller
         as a parameter. By convention,
         we call it <strong>ctrl</strong>.")),
-      m("p", m.trust("The data that our controller is supplying to the view
+      m("p", m.trust("In the code, the data that our controller is 
+        supplying to the view
         <code>displayLogo: true</code> acts as a boolean switch
         that turns the Logo component on and off. The view accesses
         it with the passed-in object: <code>ctrl.displayLogo</code>,
@@ -34,7 +37,8 @@ module.exports = {
         and a tool-tip should pop up. We'll learn about other types
         of attributes in later lessons. ")),
       m("h3", "m.trust()"),
-      m("p", "So far, we've only put strings in our views. Adding any kind of
+      m("p", "So far, we've only put strings in our views.
+        Adding any kind of
         HTML results in raw HTML to be printed, verbatim:
         <h1>Hello World</h1>.
         Mithril provides the m.trust() function,
