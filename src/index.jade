@@ -7,16 +7,31 @@ html
     script(src='http://cdn.jsdelivr.net/mithril/0.2.0/mithril.min.js')
 
   body
-    | Welcome to Mithril
+    | Welcome to M.I.T.
 
-    // You will mount your app on document.body
-    // or any descendent element.
-    // This tutorial is mounted on the body,
-    // so the text "Welcome to Mithril" (and these comments)
-    // will be replaced with the tutorial app.
-    // The browser will load script tags before m.mount() is called.
-    // To ensure that that the moounting element exists,
-    // load your main script at the end of the body.
+    // We can mount our app on document.body or any descendent element.
+    // This tutorial is mounted on the body, so the text "Welcome to Mithril"
+    // (and these comments) will be replaced with the tutorial app.
+    // On a slow connection you might briefly see the welcome message.
+    // In practice we would leave the body empty.
+
+    // bundle.js was assembled by Browserify.
+    // Browserify is not required by Mithril, but it's commonly used by
+    // developers. We point it at the main entry to our app: src/app.coffee
+    // and it wraps Mithril and all other dependencies into
+    // one file. We signal our app's dependencies with the "require" method.
+
+    // bundle.js incudes Mithril.
+    // It must load before the tutorial can be injected into the body.
+    // Under the Elements tab of DevTools or when you "view source"
+    // in your browser, you won't see a script tag for
+    // bundle.js, it has been replaced by the tutorial app.
+    // Lucky for us, bundle.js is loaded first.
+    
+    // You will see the "live-load" script. This is injected late in the
+    // process. It reloads the browser when files are changed.
+    // If you decide to use this setup for your own development,
+    // live-load will not be part of your final build.
 
     script(src='bundle.js')
 

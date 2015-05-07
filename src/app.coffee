@@ -1,7 +1,7 @@
 # Mithril Interactive Tutorial - Introduction
 #
 # This is the entry point into our app.
-# the App will fill up the entire body tag.
+# The App will fill up the entire body tag.
 
 App = {
   view: ()->
@@ -35,7 +35,7 @@ App = {
           of this tutorial is not yet available in Firefox or Safari
           developer tools."
         ),
-        m("h3.setup", "setup"),
+        m("h3.setup", "Setup"),
         m("ul", [
           m("li", [
             "Open DevTools:",
@@ -77,7 +77,13 @@ App = {
         m(".footer", [
           m("h2", "next steps:"),
           m("ul", [
-            m("li", m("p", "In your terminal, type CTRL-C to stop the tutorial.")),
+            m("li", m("p", "Read the comments in src/index.jade and
+              src/app.coffee. In each lesson the comments change,
+              so don't miss the opportunity to read these now.
+              The comments are an integral part of the tutorial.
+              They contain important information")),
+            m("li", m("p", "In your terminal,
+              type CTRL-C to stop the tutorial.")),
             m("li", [
               "Load the first lesson by entering:",
               m("p", m("code", "$ git co CJS-Lesson1"))
@@ -92,7 +98,7 @@ App = {
     ])
 }
 
-# We mount (inject) Page into to the body tag of the document.
+# We mount (inject) App into to the body tag of the document.
 # Anything that might have been there before will be replaced.
 
 m.mount(document.body, App)
