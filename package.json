@@ -11,7 +11,7 @@
     "serve": "live-server ./build/",
     "watch-jade": "jade -w src/ -o build/",
     "watch-stylus": "stylus -w src/styles -o build/styles",
-    "watch-js": "watchify src/app.coffee -v -d -t coffeeify -o build/bundle.js --list",
+    "watch-js": "watchify src/app.coffee -v -d -t stringify -t coffeeify -o build/bundle.js --list",
     "build": "npm run clean-build && npm run copy-assets && browserify src/app.coffee -t coffeeify -o build/bundle.js && jade src/ -o build/ && stylus src/ -o build/"
   },
   "devDependencies": {

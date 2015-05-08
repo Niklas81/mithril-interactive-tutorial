@@ -1,17 +1,21 @@
 m = require "mithril"
 
-# We saw in the pevious lesson
-# the HTML title attribute in the
-# attribute object, the second argument of m()
-# m("tag", { attributes }, children)
-# Mithril also offers a style attribute.
-# Style is a key, its value is an object similar to CSS.
-# We're working in javascript so keys must be in camelCase.
+# The view takes 2 arguments. The first is from the return value
+# of the controller. This happens automatically.
+# The second argument comes from
+# m.component(Header, {args}) in app.coffee
 
 module.exports = {
   view: (ctrl, args) ->
+    
+# set our title and subtitle from 'args' or set a default.
+
     title = if args and args.title then args.title else "A silly Lesson"
     subtitle = if args and args.subtitle then args.subtitle else "about silliness"
+
+# Like 'title' and 'href', style can be placed in the attributes object
+# The style object is just javascript so camelCasing is required.
+
     return m(".header", {
       style: {
         backgroundColor: "wheat",

@@ -7,35 +7,50 @@ module.exports = {
         there would be no need to learn Mithril.
         We can funnel data into the view
         from several sources. As we shall see, the view can print the data
-        or alter it to enhance it's presentation
-        TODO: REMOVE DECIMAL PLACES! ")
+        or alter it to enhance its presentation
+        TODO: REMOVE DECIMAL PLACES! "),
+      m("a.docs-icon", {
+          href: "http://mithril.js.org/mithril.component.html#optional-controller",
+          target: "_blank"
+      })
       m("h3", "Data from the contoller"),
       m(".dothis", "see src/app.coffee"),
       m("p", m.trust("In addition to the <strong>view function</strong>,
         a component often contains a <strong>controller function</strong>.
         Like the view, it returns an object.
-        Among its many responsibilities, a controller may pass data
+        ")),
+      m("p", m.trust("Although there are intermediate steps that we'll cover
+        later, program flow is generally
+        like this:<br />
+        <code>m.mount(el, App) -> App.controller() -> App.view() -> browser</code><br />
+        Remember that if the controller is omitted, Mithril supplies one.
+        Among the controller's many responsibilities, it may pass data
         to the view. This happens automatically.
         The view receives the returned object from the controller
         as a parameter. By convention,
         we call it <strong>ctrl</strong>.")),
-      m("p", m.trust("In the code, the data that our controller is 
-        supplying to the view
-        <code>displayLogo: true</code> acts as a boolean switch
+      m("p", m.trust("In the code, the controller supplies data to the view
+        in the object key/value pair: <code>displayLogo: true</code>,
+        a boolean switch
         that turns the Logo component on and off. The view accesses
-        it with the passed-in object: <code>ctrl.displayLogo</code>,
+        it in the passed-in object: <code>ctrl.displayLogo</code>,
         then displays the Logo depending on it's value. ")),
-      m(".dothis", "change the value of displayLogo from true to false,
-        save the file, and watch Logo disappear."),
+      m(".dothis", "change the value of displayLogo from true to false.
+        With the cursor still in the editor, save the file CTRL-S or CMD-S,
+        and watch Logo disappear."),
+
       m("h3", "Data as argument to the component"),
-      m("p", m.trust("The <code>m()</code> function optionally
-        takes a second argument:
-        an object that contains attributes that can affect
-        the resulting HTML. In the Header component
-        we use the HTML <strong>title</strong> attribute.
-        Hover over the word <strong>Lesson</strong> at the top of this page
-        and a tool-tip should pop up. We'll learn about other types
-        of attributes in later lessons. ")),
+      m(".dothis", "see src/app.coffee. Notice how m.components() is called
+        with 2 arguments. 'Header' and an optional object with
+        'title' and 'subtitle' as keys. "),
+      m("p", m.trust("It's possible to pass arguments to a component before
+        it's rendered to the screen. These arguments are passed to both
+        the controller and the view. ")),
+      m("code", "m.component(Header, {title: \"Lesson 3\"})"),
+      m(".dothis", "see src/Header.coffee"),
+      m("p", m.trust("It's possible to pass arguments to a component before
+        it's rendered to the screen. These arguments are passed to both
+        the controller and the view. ")),
       m("h3", "m.trust()"),
       m("p", "So far, we've only put strings in our views.
         Adding any kind of
