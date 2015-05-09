@@ -46,7 +46,7 @@ me, but arrange your dev environment however is most comfortable.
 
 ## Current State of the Tutorial
 
-**The tutorial should progress in three phases:**
+**The tutorial will be released in three phases:**
 
 1.  Progressive instructions leading to an understanding of everything in the "[Getting Started Guide](http://lhorie.github.io/mithril/getting-started.html)"
 2.  A thorough exploration of the [Mithril API](http://lhorie.github.io/mithril/mithril.html) with an emphasis on experimentation. 
