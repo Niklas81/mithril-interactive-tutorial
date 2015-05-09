@@ -29,15 +29,15 @@ not yet capable of live editing.
 - Switch to the `mithril-interactive-tutorial` folder.
 - Install dependencies: `$ npm install`
 - Start the tutorial: `$ npm run tutorial`
-- Open DevTools in Google Chrome: ALT-CTRL-I or OPT-CMD-I
+- Open DevTools in Google Chrome: `ALT-CTRL-I` or `OPT-CMD-I`
  
 The Introduction to the tutorial explains how to set up the browser window and
 DevTools in a vertically split window. This is the setup that works best for
-me, but arrange your dev environment however it's most comfortable. 
+me, but arrange your dev environment however is most comfortable. 
 
 ## Work flow
 
-For each lesson:
+**For each lesson:**
 
 - Read the guide in the browser window
 - Read the comments in the DevTools editor pane (comments change with each lesson)
@@ -46,9 +46,9 @@ For each lesson:
 
 ## Current State of the Tutorial
 
-The tutorial should progress in three phases:
+**The tutorial should progress in three phases:**
 
-1.  Step-by-step instructions leading to an understanding of everything in the Mithril "[Getting Started Guide](http://lhorie.github.io/mithril/getting-started.html)"
+1.  Step-by-step instructions leading to an understanding of everything in the "[Getting Started Guide](http://lhorie.github.io/mithril/getting-started.html)"
 2.  A thorough exploration of the [Mithril API](http://lhorie.github.io/mithril/mithril.html) with an emphasis on experimentation. 
 3.  Working examples to accompany Leo Horie's excellent [blog posts](http://lhorie.github.io/mithril-blog/).
 
