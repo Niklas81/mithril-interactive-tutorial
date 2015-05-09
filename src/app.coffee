@@ -1,4 +1,4 @@
-# Lesson 5 - Model, View, Controller
+# Lesson 5 - Getting Started
 
 m = require "mithril"
 
@@ -9,34 +9,23 @@ Footer = require "./components/Footer.coffee"
 
 App = {
 
-  view: (ctrl) ->
-    showDemo = (el, isInitialized, context)->
-      if not isInitialized then require "./components/Demo.coffee"
-
-# In the attributes object below, there is a special Mithril attribute
-# called config. Its value is the showDemo function from above.
-# config allows us to do work "after" the app is fully loaded.
-# Its function manipulates the real DOM.
-# We'll learn more about config in a later lesson. 
-
-    return m(".page", {config: showDemo}, [
+  view: () ->
+    return m(".page", [
       
       m.component(Logo),
       
       m.component(Header, {
         title: "Lesson 5",
-        subtitle: "Routes"
+        subtitle: "A Todo App"
       }),
       
-      m.component(Content),
+      m.component(Content, { content: "lesson5.html" }),
       
       m.component(Footer, {
-        nextLesson: "???",
-        gitBranch: "CJS-Lesson5"
+          nextLesson: "???"
       })
+      
     ])
 }
 
 m.mount(document.body, App)
-
-
