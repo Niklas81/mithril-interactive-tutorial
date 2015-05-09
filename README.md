@@ -4,7 +4,7 @@
 
 The goal of this project is to teach developers how to get up and running
 with the [Mithril MVC framework](http://mithril.js.org).
-After an intoduction and setup instructions, the first lesson begins
+After an introduction and setup instructions, the first lesson begins
 with the most basic app. A lesson consists of a guide, which is a live Mithril
 web app, and comments in the editable source code. Links to pertinent sections of the official Mithril docs will
 be provided throughout.
@@ -18,7 +18,7 @@ There will be two versions of the tutorial, each utilizing different technologie
 
 Git on the command line is essential. If you use a git GUI you should know how to switch branches.
 The tutorial allows you to live-edit the source code with the help of
-Browserfy, Watchify, and Live Reload. You will need `npm` to install these
+Browserify, Watchify, and Live Reload. You will need `npm` to install these
 libraries. To maximize interaction, the tutorial relies on the `Google Chrome`
 web browser and the `DevTools` within. Firefox and Safari developer tools are
 not yet capable of live editing. 
