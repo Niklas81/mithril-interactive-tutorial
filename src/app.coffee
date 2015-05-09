@@ -1,4 +1,4 @@
-# Lesson 4 - Model, View, Controller
+# Lesson 5 - Model, View, Controller
 
 m = require "mithril"
 
@@ -24,14 +24,14 @@ App = {
       m.component(Logo),
       
       m.component(Header, {
-        title: "Lesson 4",
-        subtitle: "Model, View, Controller"
+        title: "Lesson 5",
+        subtitle: "Routes"
       }),
       
       m.component(Content),
       
       m.component(Footer, {
-        nextLesson: "Routes",
+        nextLesson: "???",
         gitBranch: "CJS-Lesson5"
       })
     ])
