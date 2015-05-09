@@ -31,8 +31,8 @@ App = {
       m.component(Content),
       
       m.component(Footer, {
-        nextLesson: "Routes",
-        gitBranch: "CJS-Lesson5"
+        nextLesson: "A Todo App",
+        gitBranch: "cs-lesson5"
       })
     ])
 }
