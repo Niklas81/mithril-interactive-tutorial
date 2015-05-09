@@ -6,7 +6,7 @@ m = require "mithril"
 
 model = {
   title: "Next Lesson: The Controller",
-  lesson: "cs-lesson3"
+  lesson: "cs-lesson4"
 }
 
 # We access the model directly in the view, here.
