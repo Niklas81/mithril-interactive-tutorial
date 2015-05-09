@@ -2,16 +2,26 @@
 
 ## (in development)
 
-The goal of this project is to teach beginners and seasoned developers how to incorporate the [Mithril MVC framework](http://mithril.js.org) into any workflow. After an intoduction and setup instructions, the first lesson begins with the most basic app. A lesson consists of a guide (which is a live Mithril web app) and comments in the source code of the live app.
-There are three versions of the tutorial, each utilizing different technologies:
+The goal of this project is to teach developers how to get up and running
+with the [Mithril MVC framework](http://mithril.js.org).
+After an intoduction and setup instructions, the first lesson begins
+with the most basic app. A lesson consists of a guide, which is a live Mithril
+web app, and comments in the editable source code. Links to pertinent sections of the official Mithril docs will
+be provided throughout.
 
-1.  JHC - Plain javascript, HTML, and CSS
-2.  CHC - CoffeeScript, HTML and CSS
-3.  CJS - CoffeeScript, Jade, and Stylus
+There will be two versions of the tutorial, each utilizing different technologies:
+
+1.  Javascript, HTML, and CSS
+2.  CoffeeScript, HTML, and Stylus
 
 ## Requirements
 
-The tutorial allows you to live-edit the source code with the help of Browserfy, Watchify, and Live Reload. You will need `npm` to install these libraries. To maximize interaction, the tutorial relies on the `Google Chrome` web browser and the `DevTools` within. Firefox and Safari developer tools are not yet capable of live editing. 
+Git on the command line is essential. If you use a git GUI you should know how to switch branches.
+The tutorial allows you to live-edit the source code with the help of
+Browserfy, Watchify, and Live Reload. You will need `npm` to install these
+libraries. To maximize interaction, the tutorial relies on the `Google Chrome`
+web browser and the `DevTools` within. Firefox and Safari developer tools are
+not yet capable of live editing. 
 
 ## Setup
 
@@ -19,8 +29,11 @@ The tutorial allows you to live-edit the source code with the help of Browserfy,
 - Switch to the `mithril-interactive-tutorial` folder.
 - Install dependencies: `$ npm install`
 - Start the tutorial: `$ npm run tutorial`
+- Open DevTools in Google Chrome: ALT-CTRL-I or OPT-CMD-I
  
-The Introduction to the tutorial explains how to set up the browser window and DevTools in a vertically split window. This is the setup that works best for me, but arrange your dev environment however it's most comfortable. 
+The Introduction to the tutorial explains how to set up the browser window and
+DevTools in a vertically split window. This is the setup that works best for
+me, but arrange your dev environment however it's most comfortable. 
 
 ## Work flow
 
@@ -32,6 +45,12 @@ For each lesson:
 - Load the next lesson
 
 ## Current State of the Tutorial
+
+The tutorial should progress in three phases:
+
+1.  Step-by-step instructions leading to an understanding of everything in the Mithril "[Getting Started Guide](http://lhorie.github.io/mithril/getting-started.html)"
+2.  A thorough exploration of the [Mithril API](http://lhorie.github.io/mithril/mithril.html) with an emphasis on experimentation. 
+3.  Working examples to accompany Leo Horie's excellent [blog posts](http://lhorie.github.io/mithril-blog/).
 
 This tutorial is a work in progress. I plan to add new lessons as time provides. I heartily welcome suggestions and criticism.
 If you find mistakes, and you will, please submit a comment or pull request. 
