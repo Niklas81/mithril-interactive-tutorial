@@ -1,58 +1,42 @@
-# Lesson 3 - Passing Data to the View
+# Lesson 4 - Model, View, Controller
 
 m = require "mithril"
 
-# App is composed of 4 components.
-# First we must require the components
-# and namespace them (set them to unique variables).
-
 Logo = require "./components/Logo.coffee"
 Header = require "./components/Header.coffee"
+Content = require "./components/Content.coffee"
 Footer = require "./components/Footer.coffee"
-
-# Our app requires a lot of good old HTML,
-# so we move it into it's own file: src/assets/lesson3.html
-# and require it here. Browserify, with the help of the stringify transform,
-# will include it in bundle.js. If your app is not text-heavy
-# you should not need this extra step.
-# There are other ways to include large amounts of markup that we'll
-# cover later.
-
-html = require "./assets/lesson3.html"
-Content = {
-  view: () ->
-
-#### Using m.trust() like this can be a security risk!
-#### See the Mithril docs on m.trust() for more info.
-
-    return m(".content", m.trust(html))
-}
 
 App = {
 
-# The controller returns an object that will be the first parameter
-# to the view (ctrl).
+  view: (ctrl) ->
+    showDemo = (el, isInitialized, context)->
+      if not isInitialized then require "./components/Demo.coffee"
 
-  controller: () ->
-    return {
-      displayLogo: true
-    }
+# In the attributes object below, there is a special Mithril attribute
+# called config. Its value is the showDemo function from above.
+# config allows us to do work "after" the app is fully loaded.
+# Its function manipulates the real DOM.
+# We'll learn more about config in a later lesson. 
 
-# Mithril automatically inserts the ctrl object.
-
-  view: (ctrl) -> 
-    return m(".page", [
-
-# to print or not to print
-      if ctrl.displayLogo then m.component(Logo) else "",
-
-# m.component() takes an object as a second argument. It is passed to the
-# Header component. See Header.coffee
+    return m(".page", {config: showDemo}, [
       
-      m.component(Header, {title: "Lesson 3", subtitle: "Passing Data to the View"}),
+      m.component(Logo),
+      
+      m.component(Header, {
+        title: "Lesson 4",
+        subtitle: "Model, View, Controller"
+      }),
+      
       m.component(Content),
-      m.component(Footer)
+      
+      m.component(Footer, {
+        nextLesson: "Routes",
+        gitBranch: "CJS-Lesson5"
+      })
     ])
 }
 
 m.mount(document.body, App)
+
+
