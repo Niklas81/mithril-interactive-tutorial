@@ -1,3 +1,5 @@
+# M.I.T - Lesson 1 - Hello World
+
 # We could add Mithril to our app with a link tag in the header,
 # But here we've chosen to include it in src/bundle.js with "require"
 
@@ -102,7 +104,7 @@ App = {
           m("li", "In the terminal, stop the tutorial with 
             CTRL-C or CMD-C."),
           m("li", "Load the next lesson with:"),        
-          m("code", "$ git co CJS-Lesson2"),
+          m("code", "$ git co cs-lesson2"),
           m("li", "Restart the tutorial with:"),
           m("code", "$ npm run tutorial")
         ])
