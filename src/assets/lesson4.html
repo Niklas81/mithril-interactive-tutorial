@@ -1,6 +1,6 @@
 <div id="example"></div>
 <p>This menu is the demo from the Mithril home page. The code has been
-slightly adapted to work with the tutorial. It is a component like any
+slightly adapted to work with the tutorial. It's a component like any
 other. While Header, Content and Footer are nested components under App,
 the demo was injected after this page was rendered.</p>
 
@@ -12,7 +12,9 @@ the page is fully rendered.</div>
 target="_blank" class="docs-icon"></a>
 
 <h3>m.request()</h3>
-<p>We start by populating the model with data. <code>m.request()</code>
+<p>The links in the demo are not hard coded into the component. They need
+to be loaded from an outside source. We start by
+populating the model with data. <code>m.request()</code>
 is Mithril's built-in AJAX wrapper. By default, it expects the resonse to
 be in JSON format. See <code class=file>src/assets/pages.json</code></p>
 <p>The return value of <code>m.request()</code> is special in 2 ways.
@@ -31,9 +33,9 @@ a promise, an empty placeholder that will be filled as soon as
 loading even when it doesn't have all the data. The app feels faster
 and more responsive.
 </p>
-<p>pages is also an m.prop() getter/setter funcion. To retrieve
-its value we must call <code>pages()</code> with no parameters. We
-call it twice in the view.</p>
+<p><code>pages</code> is also an <code>m.prop()</code> getter/setter function. To retrieve
+its value we must call <code>pages()</code> with no parameters. It's
+called twice in the view.</p>
 <p>App.controller also contains one incredibly useful function:
 <code>rotate()</code> 😄</p>
 
