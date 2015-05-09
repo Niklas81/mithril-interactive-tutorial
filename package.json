@@ -2,22 +2,20 @@
   "name": "mithril-interactive-tutorial",
   "version": "0.0.1",
   "description": "Step-by-step lessons on using the Mithril MVC framework",
-  "main": "app.js",
+  "main": "bundle.js",
   "scripts": {
-    "tutorial": "npm run clean-build; npm run make-directories; npm run copy-assets; npm run watch-js & npm run watch-jade & npm run watch-stylus & npm run serve",
+    "tutorial": "npm run clean-build; npm run make-directories; npm run copy-files; npm run watch-js & npm run watch-stylus & npm run serve",
     "clean-build": "rm -rf build/*",
     "make-directories": "mkdir build/styles",
-    "copy-assets": "cp -Rf src/assets build/",
+    "copy-files": "cp -Rf src/*.html build/; cp -Rf src/assets build/",
     "serve": "live-server ./build/",
-    "watch-jade": "jade -w src/ -o build/",
     "watch-stylus": "stylus -w src/styles -o build/styles",
-    "watch-js": "watchify src/app.coffee -v -d -t coffeeify -o build/bundle.js --list",
-    "build": "npm run clean-build && npm run copy-assets && browserify src/app.coffee -t coffeeify -o build/bundle.js && jade src/ -o build/ && stylus src/ -o build/"
+    "watch-js": "watchify src/app.coffee -v -d -t stringify -t coffeeify -o build/bundle.js --list",
+    "build": "npm run clean-build && npm run make-directories && npm run copy-files && browserify src/app.coffee -t stringify -t coffeeify -o build/bundle.js && stylus src/styles -o build/styles"
   },
   "devDependencies": {
     "browserify": "",
     "coffeeify": "",
-    "jade": "",
     "live-server": "",
     "stylus": "",
     "watchify": "",
