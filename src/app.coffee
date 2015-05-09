@@ -1,4 +1,4 @@
-# Lesson 3 - Passing Data to the View
+# M.I.T. - Lesson 3 - Passing Data to the View
 
 m = require "mithril"
 
@@ -49,7 +49,7 @@ App = {
 # m.component() takes an object as a second argument. It is passed to the
 # Header component. See Header.coffee
       
-      m.component(Header, {title: "Lesson 3", subtitle: "Passing Data to the View"}),
+      m.component(Header, {title: "Lesson 4", subtitle: "Passing Data to the View"}),
       m.component(Content),
       m.component(Footer)
     ])

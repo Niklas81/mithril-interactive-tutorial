@@ -6,7 +6,7 @@ m = require "mithril"
 
 model = {
   title: "Next Lesson: The Controller",
-  lesson: "CJS-Lesson3"
+  lesson: "cs-lesson3"
 }
 
 # We access the model directly in the view, here.
@@ -20,7 +20,7 @@ module.exports = {
       m("h2.title", model.title),
       m("ul.setup", [
         m("li", m.trust("In the terminal, stop the tutorial with
-          <code>CTRL-c</code> or <code>COMMAND-c</code>.")),
+          <code>CTRL-C</code> or <code>CMD-C</code>.")),
         m("li", m.trust("Enter <code>$ git co " +
           model.lesson +
           "</code>.")),
