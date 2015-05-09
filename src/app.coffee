@@ -1,3 +1,5 @@
+# M.I.T. - Lesson 2 -- Enhancing the View
+
 # Mithril can be loaded with a script tag in the header of the page,
 # or we can include it with "require".
 
@@ -153,7 +155,7 @@ Footer = {
       m("ul.setup", [
         m("li", m.trust("In the terminal, stop the tutorial with
           <code>CTRL-C</code> or <code>CMD-C</code>")),
-        m("li", m.trust("Enter <code>$ git co CJS-Lesson3</code>")),
+        m("li", m.trust("Enter <code>$ git co cs-lesson3</code>")),
         m("li", m.trust("Restart the tutorial with 
           <code>$ npm run tutorial</code>"))
       ])
