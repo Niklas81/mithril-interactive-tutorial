@@ -1,4 +1,4 @@
-# Mithril Interactive Tutorial - Introduction
+# M.I.T. - Mithril Interactive Tutorial - Introduction
 #
 # This is the entry point into our app.
 # The App will fill up the entire body tag.
@@ -86,7 +86,7 @@ App = {
               type CTRL-C to stop the tutorial.")),
             m("li", [
               "Load the first lesson by entering:",
-              m("p", m("code", "$ git co CJS-Lesson1"))
+              m("p", m("code", "$ git co cs-lesson1"))
             ]),
             m("li", [
               "Restart the tutorial by entering:",
