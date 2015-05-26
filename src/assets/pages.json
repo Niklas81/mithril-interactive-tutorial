@@ -1,6 +1,7 @@
 [
-{"title": "Getting Started", "url": "http://mithril.js.org/getting-started.html"},
-{"title": "Documentation", "url": "http://mithril.js.org/mithril.html"},
-{"title": "Mithril Blog", "url": "http://lhorie.github.io/mithril-blog/"},
-{"title": "Mailing List", "url": "https://groups.google.com/forum/#!forum/mithriljs"}
+{"title": "Lesson 5", "subtitle": "A Todo App", "url": "/", "nextLesson": "The View", "nextUrl": "/lesson5.0", "previousUrl": null },
+{"title": "Lesson 5.0", "subtitle": "The View", "url": "/lesson5.0", "nextLesson": "The Model", "nextUrl": "/lesson5.1", "previousUrl": "/" },
+{"title": "Lesson 5.1", "subtitle": "The Model", "url": "/lesson5.1", "nextLesson": "The Controller", "nextUrl": "/lesson5.2", "previousUrl": null },
+{"title": "Lesson 5.2", "subtitle": "The Controller", "url": "/lesson5.2", "nextLesson": "The View-Model", "nextUrl": "/lesson5.3", "previousUrl": null },
+{"title": "Lesson 5.3", "subtitle": "The View-Model", "url": "/lesson5.3", "nextLesson": "", "nextUrl": "", "previousUrl": "null" }
 ]

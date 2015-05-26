@@ -1,6 +1,6 @@
 m = require "mithril"
 
-html = require "../assets/lesson5.html"
+html = require "../lesson.html"
 
 
 module.exports = {

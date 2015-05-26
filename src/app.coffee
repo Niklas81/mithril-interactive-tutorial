@@ -4,28 +4,35 @@ m = require "mithril"
 
 Logo = require "./components/Logo.coffee"
 Header = require "./components/Header.coffee"
-Content = require "./components/Content.coffee"
+Todo = require "./Todo5.coffee"
+html = require "./lesson5.html"
 Footer = require "./components/Footer.coffee"
 
 App = {
 
   view: () ->
     return m(".page", [
-      
+
       m.component(Logo),
-      
+
       m.component(Header, {
         title: "Lesson 5",
         subtitle: "A Todo App"
       }),
-      
-      m.component(Content, { content: "lesson5.html" }),
-      
+
+      m(".lesson", m.trust(html)),
+
+      m.component(Todo),
+
       m.component(Footer, {
-          nextLesson: "???"
+        preview: "We'll begin by creating a prototype of our app.",
+        nextLesson: "5.0 - The View",
+        nextUrl: "/lesson5.0/",
+        prevUrl: null
       })
-      
+
     ])
 }
 
 m.mount(document.body, App)
+

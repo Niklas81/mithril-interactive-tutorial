@@ -3,7 +3,7 @@ m = require "mithril"
 #model
 Page =
   list: ->
-    return m.request({ method: "GET", url: "../assets/pages.json" })
+    return m.request({ method: "GET", url: "/assets/pages.json" })
 
 #component
 Menu = {
@@ -20,7 +20,7 @@ Menu = {
 
       if ctrl.pages()
         ctrl.pages().map((page)->
-          return m("a", { href: page.url }, page.title))
+          return m("a", { href: page.url }, page.title + ' — ' + page.subtitle))
       else null,
       
     ])
