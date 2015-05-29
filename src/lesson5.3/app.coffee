@@ -1,11 +1,11 @@
-# Lesson 5.2 - Getting Started
+# Lesson 5.3 - The View-Model
 
 m = require "mithril"
 
 Logo = require "../components/Logo.coffee"
 Header = require "../components/Header.coffee"
-Todo = require "./Todo5.2.coffee"
-html = require "./lesson5.2.html"
+Todo = require "./Todo5.3.coffee"
+html = require "./lesson5.3.html"
 Footer = require "../components/Footer.coffee"
 
 App = {
@@ -16,8 +16,8 @@ App = {
       m.component(Logo),
 
       m.component(Header, {
-        title: "Lesson 5.2",
-        subtitle: "The Controller"
+        title: "Lesson 5.3",
+        subtitle: "The View-Model"
       }),
 
       m(".lesson", m.trust(html)),
@@ -25,14 +25,10 @@ App = {
       m.component(Todo),
 
       m.component(Footer, {
-        preview: "The Controller should connect the Model with the View
-        but shouldn't know anything about the inner workings of either. Our
-        controller is too tightly coupled with the the View and Model, so next we
-        factor out our controller logic to the companion to our data model: the
-        view-model.",
-        nextLesson: "5.3 - The View-Model",
-        nextUrl: "/lesson5.3"
-        prevUrl: "/lesson5.1"
+        preview: "Summary",
+        nextLesson: "5.4 - App Structure",
+        nextUrl: "/lesson5.4",
+        prevUrl: "/lesson5.2"
       })
 
     ])

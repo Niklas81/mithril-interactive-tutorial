@@ -1,4 +1,4 @@
-# Lesson 5.2 - The Model
+# Lesson 5.3 - The View-Model
 
 m = require "mithril"
 
