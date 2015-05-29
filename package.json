@@ -2,24 +2,32 @@
   "name": "mithril-interactive-tutorial",
   "version": "0.0.1",
   "description": "Step-by-step lessons on using the Mithril MVC framework",
-  "main": "bundle.js",
+  "main": "app.js",
   "scripts": {
-    "tutorial": "npm run clean-build; npm run make-directories; npm run copy-files; npm run watch-js & npm run watch-stylus & npm run serve",
-    "clean-build": "rm -rf build/*",
-    "make-directories": "mkdir build/styles",
-    "copy-files": "cp -Rf src/*.html build/; cp -Rf src/assets build/",
-    "serve": "live-server ./build/",
+    "tutorial": "npm run clean-build; npm run make-directories; npm run copy-things; npm run watch-js & npm run watch-stylus & npm run browser-sync",
+    "clean-build": "rm -rf build",
+    "make-directories": "mkdir build build/styles",
+    "copy-things": "cp -Rf src/assets build/ && cp -Rf src/*.html build/",
+    "copy-lessons": "cp -Rf src/lesson* build/",
+    "browser-sync": "cd ./build && browser-sync start --config=../bs-config.js",
     "watch-stylus": "stylus -w src/styles -o build/styles",
     "watch-js": "watchify src/app.coffee -v -d -t stringify -t coffeeify -o build/bundle.js --list",
-    "build": "npm run clean-build && npm run make-directories && npm run copy-files && browserify src/app.coffee -t stringify -t coffeeify -o build/bundle.js && stylus src/styles -o build/styles"
+    "build": "npm run clean-build && npm run copy-assets && browserify src/app.coffee -t coffeeify -o build/bundle.js && stylus src/ -o build/",
+    "make-directories-lesson5": "mkdir build/styles; mkdir build/lesson5.0; mkdir build/lesson5.1; mkdir build/lesson5.2; mkdir build/lesson5.3;",
+    "lesson5": "npm run clean-build; npm run make-directories-lesson5; npm run copy-assets && npm run copy-lessons && npm run copy-html; npm run watch-lesson5 & npm run watch-stylus & npm run browser-sync",
+    "watch-lesson5": "watchify --verbose -t stringify -t coffeeify src/app.coffee src/lesson5.0/app.coffee src/lesson5.1/app.coffee src/lesson5.2/app.coffee src/lesson5.3/app.coffee -p [factor-bundle -o build/bundle.js -o build/lesson5.0/bundle.js -o build/lesson5.1/bundle.js -o build/lesson5.2/bundle.js -o build/lesson5.3/bundle.js] -o build/common.js",
+    "browserify": "browserify src/lesson5.0/app.coffee src/lesson5.1/app.coffee src/lesson5.2/app.coffee src/lesson5.3/app.coffee -t stringify -t coffeeify  -p [factor-bundle -o build/lesson5.0/bundle.js -o build/lesson5.1/bundle.js -o build/lesson5.2/bundle.js -o build/lesson5.3/bundle.js] -o build/common.js",
+    "build-lesson5": "npm run clean-build; npm run make-directories-lesson5; npm run copy-assets && npm run copy-lessons; npm run browserify && stylus src/ -o build/"
   },
   "devDependencies": {
     "browserify": "",
     "coffeeify": "",
-    "live-server": "",
     "stylus": "",
     "watchify": "",
-    "mithril": "~0.2.0"
+    "mithril": "~0.2.0",
+    "stringify": "~3.1.0",
+    "factor-bundle": "~2.3.3",
+    "browser-sync": "~2.7.1"
   },
   "author": "pelonpelon",
   "license": "MIT"

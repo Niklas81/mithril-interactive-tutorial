@@ -3,9 +3,11 @@
 # This is the entry point into our app.
 # The App will fill up the entire body tag.
 
+m = require "mithril"
+
 App = {
   view: ()->
-    return m(".page", {style:{maxWidth: '500px'; margin: '0 auto'} }, [
+    return m(".page", {style:{maxWidth: '480px'; margin: '0 auto'} }, [
 
       m(".header", [
         m("h1.title", "Mithril Interactive Tutorial"),
@@ -42,9 +44,14 @@ App = {
             m("p", "linux: ⌃⌥ + I"),
             m("p", "osx: ⌘⌥ + I")
           ]),
-          m("li", "Move the DevTools window to the right of the browser window
-            by clicking the window icon in the upper right toolbar. "),
+          m("li", "Embed the DevTools window to the right of the browser window
+            by clicking/CTRL-clicking the window icon to the far right in the 
+            DevTools toolbar."),
           m("p", m("img[src=assets/MIT-toolbar.png]")),
+          m("p", "You eventually want your windows to look like this. Stretch
+          the DevTools window wide to get the best view of the editor.
+          The ESC key toggles the console."),
+          m("p", m("img[src=assets/MIT-full_page-400.png]")),
           m("li", "Open the Sources tab."),
           m("p", m("img[src=assets/MIT-panels.png]")),
           m("li", m("p", [
@@ -55,12 +62,13 @@ App = {
           m("li", "Workspace -> Add folder..."),
           m("li", "Find the src folder of this tutorial and click Select."),
           m("br"),
-          m("img[src=assets/MIT-full_page-400.png]"),
           m("p", "You should now see the src folder at the bottom 
-            of the Sources file browser in DevTools.
+            of the Sources file browser to the left in DevTools.
             Open app.coffee inside the src folder.
             In the editor panel on the right,
-            you should see the Mithril file that produces this page."
+            you should see the Mithril file that produces this page. Although
+            it contains perfectly good Mithril code, your apps will look
+            quite different."
           )
         ]),
         m("hr"),
@@ -77,7 +85,7 @@ App = {
         m(".footer", [
           m("h2", "next steps:"),
           m("ul", [
-            m("li", m("p", "Read the comments in src/index.jade and
+            m("li", m("p", "Read the comments in src/index.index and
               src/app.coffee. In each lesson the comments change,
               so don't miss the opportunity to read these now.
               The comments are an integral part of the tutorial.

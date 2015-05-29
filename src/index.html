@@ -13,15 +13,18 @@
 
 <!--
 We can mount our app on document.body or any descendent element.
-This tutorial is mounted on the body, so the text "Welcome to Mithril"
-(and these comments) will be replaced with the tutorial app.
-On a slow connection you might briefly see the welcome message.
+This tutorial is mounted on the body, so the above text
+"Welcome to M.I.T." (and these comments)
+will be replaced with the tutorial app.
+On a slow connection as the page loads,
+you might briefly see the welcome message.
 In practice we would leave the body empty.
 
-bundle.js incudes Mithril. It must load before m.mount() can be called.
-Under the Elements tab of DevTools you won't see a script tag for
-bundle.js, it has also been replaced by the tutorial app.
-Lucky for us, it was loaded earlier.
+Browserfy.js created bundle.js which incudes mithril.js
+This is a development choice that has nothing to do with Mithril.
+Under the Elements tab of DevTools you won't see a script tag for bundle.js
+It was replaced along with the rest of the body by the tutorial app.
+Lucky for us bundle.js was loaded before mithril.js could replace it.
 
 You might see an error in the console like this:
 
