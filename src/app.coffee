@@ -7,7 +7,7 @@ m = require "mithril"
 
 App = {
   view: ()->
-    return m(".page", {style:{maxWidth: '480px'; margin: '0 auto'} }, [
+    return m(".page", [
 
       m(".header", [
         m("h1.title", "Mithril Interactive Tutorial"),
@@ -30,7 +30,7 @@ App = {
         ]),
         m("h3.requirements", "Requirements"),
         m("p",
-          "This tutrial assumes that you are familiar with HTML and CSS,
+          "This tutorial assumes that you are familiar with HTML and CSS,
           and have a working knowlege of javascript.
           You will need to use the Google Chrome browser
           and know how to open Chrome DevTools. The live editing aspect
@@ -50,7 +50,7 @@ App = {
           m("p", m("img[src=assets/MIT-toolbar.png]")),
           m("p", "You eventually want your windows to look like this. Stretch
           the DevTools window wide to get the best view of the editor.
-          The ESC key toggles the console."),
+          The ESC key toggles the console. Other shortcuts are found in Settings."),
           m("p", m("img[src=assets/MIT-full_page-400.png]")),
           m("li", "Open the Sources tab."),
           m("p", m("img[src=assets/MIT-panels.png]")),
@@ -60,7 +60,7 @@ App = {
               ])
           ),
           m("li", "Workspace -> Add folder..."),
-          m("li", "Find the src folder of this tutorial and click Select."),
+          m("li", "Find the src folder of this tutorial, Select, and close Settings."),
           m("br"),
           m("p", "You should now see the src folder at the bottom 
             of the Sources file browser to the left in DevTools.
@@ -76,7 +76,7 @@ App = {
           The title of the next section should be capitalized.
           In the editor panel, change \"next\" to \"Next\"
           and \"steps\" to \"Steps\".
-          With the blinking cursor still in the editor pane,
+          With the blinking cursor still in the editor panel,
           save with CTRL-S or CMD-S.
           The changes are saved to disk and
           soon the browser window should reflect the change."
@@ -90,6 +90,8 @@ App = {
               so don't miss the opportunity to read these now.
               The comments are an integral part of the tutorial.
               They contain important information")),
+            m("h4", "Close all open file tabs in the editor at the end of each lesson,
+            to avoid mistaking files from the previous lesson."),
             m("li", m("p", "In your terminal,
               type CTRL-C to stop the tutorial.")),
             m("li", [
