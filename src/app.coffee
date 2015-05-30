@@ -95,6 +95,10 @@ App = {
             m("li", m("p", "In your terminal,
               type CTRL-C to stop the tutorial.")),
             m("li", [
+              "Reset this introduction to its original state:",
+              m("p", m("code", "$ git stash"))
+            ]),
+            m("li", [
               "Load the first lesson by entering:",
               m("p", m("code", "$ git co cs-lesson1"))
             ]),
