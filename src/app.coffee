@@ -1,19 +1,20 @@
 # M.I.T - Lesson 1 - Hello World
 
 # We could add Mithril to our app with a link tag in the header,
-# But here we've chosen to include it in src/bundle.js with "require"
+# But here we've chosen to include it in build/bundle.js with "require"
+# which is handled by browserfy.
 
 m = require "mithril"
 
 # This is the entry point into our app.
 
 App = {
-  view: ()->
+  view: ->
 
-# We haven't included a stylesheet yet, so we're adding inline styles here.
-# The style attribute will be explained in the next lesson.
+# It's a common mistake to forget that templates must be in a return statement
+# The children of <div class="page></div> are members of an array.
 
-    return m(".page", { style: {maxWidth: '480px', margin: '0 auto'} }, [
+    return m(".page", [
 
 # Compare this template fragment to the resulting <div class=header...
 # in the Elements pane.
@@ -40,37 +41,39 @@ App = {
         m("h3", "The View"),
         m("p", "The view produces what finally appears in the browser window.
           The view template consists of calls to the m() method, which
-          produces a virtual DOM element. Once all virtual DOM elements
-          are assembled, they are injected into the real dom (the web page).
+          produces a virtual (in memory) DOM element. Once all virtual DOM elements
+          are assembled, they are injected into the browser DOM (the web page).
           The first parameter of the m() function
           designates an HTML tag such as \'h1\' or \'p\.' An id or
           any number of classes can be appended to the tag with
-          the usual [#] and [.] notation. If CSS classes or id's are found
+          the usual [#] and [.] notation."),
+        m("code", "m(\"div#container.nobkg.themed\")"),
+        m("p", "If CSS classes or id's are found
           without an HTML tag, Mithril converts the parameter into a
           \'div\' tag and appends the class or id."),
         m("strong", "☞ The .page class is an example of Mithril
           automatically inserting a missing tag.
           Compare the first line of the view function
           to the resulting HTML in the Elements panel.
-          Look for <div class=\"page\">"),
+          Look for <div class=\"page\">."),
         m("p", "The last parameter of the m() function
           is the inner part of the HTML tag (its children).
           As with HTML, this can be text or more HTML.
           In Mithril, more HTML means more m() calls. When the tag
           needs to contain more than one string or one call to m(),
           the parameter must be an array with any combination of both."),
-        m("strong", "☞ In the code, notice the use either arrays or simple
-          strings in the second parameter to m()"),
+        m("strong", "☞ In the code, notice the use either arrays (ie. \".header\") or simple
+          strings, in the second parameter to m()."),
  
         m("h3", "Mounting Your App"),
         m("p", "Our simple app is nothing more that a view which Mithril
           converts into HTML and inserts into the page
-          with a call to the mount() method:"),
+          with a call to the m.mount() method on the last line of the file."),
         m("code", "m.mount(DOM element, component)"),
-        m("p", "on the last line of the file. The first parameter is the
+        m("p", "The first parameter is the
           element we wish to use to mount the app,
           (in our case: document.body). The second parameter
-          is the component we wish to insert: (App)."),
+          is the component we wish to place there: App."),
             
         m("h3", "Components - The building blocks of your app"),
         m("p", "In the code, the view is divided into header, content and
@@ -87,10 +90,10 @@ App = {
           (not an array !!). App is considered a top-level component. It
           stands alone and will never be part of another component. It
           uniquely may return an array in its view, as we shall see in
-          the next lesson. "),
+          the next lesson. It's possible to have more than on top-level
+          component on a page."),
         m("hr"),
         m("ul", [
-          m("li", "Read the comments in index.jade."),
           m("li", "Read the comments in app.coffee."),
           m("li", "Study the code. It should all make sense to you."),
           m("li", "Notice that m(\"hr\") and m(\"br\") 
@@ -100,13 +103,16 @@ App = {
 
 
         m(".footer", [
-          m("h2.title", "Next Lesson: Enhancing the View"),
-          m("li", "In the terminal, stop the tutorial with 
-            CTRL-C or CMD-C."),
-          m("li", "Load the next lesson with:"),        
-          m("code", "$ git co cs-lesson2"),
-          m("li", "Restart the tutorial with:"),
-          m("code", "$ npm run tutorial")
+          m("h3", "Next Lesson: Enhancing the View"),
+          m("ul", [
+            m("li", "In the terminal, stop the tutorial with CTRL-C or CMD-C."),
+            m("li", "If you've edited any files, reset the lesson with:"),        
+            m("code", "$ git stash"),
+            m("li", "Load the next lesson with:"),        
+            m("code", "$ git co cs-lesson2"),
+            m("li", "Restart the tutorial with:"),
+            m("code", "$ npm run tutorial")
+          ])
         ])
       ])
     ])

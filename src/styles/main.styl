@@ -1,0 +1,158 @@
+::-webkit-scrollbar
+    display: none; 
+p
+  margin: 10px 0
+  
+.page
+  width: 480px
+  margin: 0 auto
+
+.logo
+  height: 30px
+  padding: 5px 5px 0 5px
+  text-decoration: none
+  line-height: 2rem
+  background: #5a5
+
+  .mit
+    float: left
+    font-size: 2rem
+    color: white
+
+  .mithril
+    float: right
+    margin-right: 5px
+    font-size: 1.5rem
+    font-family: Georgia
+    font-style: italic
+    text-align: right
+    color: white
+
+  .icon
+    float: right
+    font-size: 2.2rem
+    color: white
+
+  .icon::before
+    content: "\25CB"
+    position: absolute
+    margin: -0.17em 0 0 -0.10em
+
+  .icon::after
+    content: "\25CB"
+    position: absolute
+    margin: -0.17em 0 0 -0.5em
+
+  .mit:hover, .mithril:hover, .icon:hover
+    color: lightblue
+    text-decoration: none
+
+.header,
+.footer
+  background-color: wheat
+  padding: 10px
+
+.header
+  margin-bottom: 15px
+
+.footer
+  margin-top: 15px
+
+.dothis
+  margin: 20px 30px 20px 20px
+  color: #5a5
+  background-color: lightgoldenrodyellow 
+  font-weight: 800
+  padding: 10px
+  font-family: monospace
+
+.dothis::before
+  content: "☞ "  
+
+code.file
+  color: lightseagreen
+  background-color: #eee
+
+a.docs-icon
+  float: right
+  margin-top:0
+  background-color: cornflowerblue
+  border: 5px solid
+  border-color: cornflowerblue
+  border-radius: 50%
+  text-decoration: none
+
+a.docs-icon::before
+  display: block
+  content: "Mithril Docs"
+  color: white
+  font-size: .9rem
+
+a.docs-icon:hover
+  background-color: crimson
+  border-color: crimson
+  text-decoration: none
+
+.menu
+  background: #ffe
+  border: 1px solid #ddd
+  display: block
+  font: Courier New
+  margin: 20px 0
+  padding: 5px 10px
+  clear: left
+
+.menu a
+  display:block
+  margin:0 0 10px
+
+.menu a:after
+  content:" \a0\a6\a0 "
+
+.footer .preview
+  margin: 15px 15px 0 15px
+  font-size: small
+
+.footer h2.title
+  float: left
+  font-size: 2.2rem
+
+a.fwd
+  float: right
+  clear: right
+  text-decoration: none
+
+a.fwd::after
+  content: "➤"
+  margin-right: 5px
+  font-size: 4rem
+  line-height: 65px
+
+a.rev
+  float: left
+  clear: left
+  text-decoration: none
+  -webkit-transform:rotateY(180deg)
+  -moz-transform:rotateY(180deg)
+  -o-transform:rotateY(180deg)
+  -ms-transform:rotateY(180deg)
+  unicode-bidi:bidi-override
+  direction:rtl
+
+a.rev::after
+  content: "➤"
+  margin-left: 5px
+  font-size: 4rem
+  line-height: 65px
+  -webkit-transform:rotateY(180deg)
+  -moz-transform:rotateY(180deg)
+  -o-transform:rotateY(180deg)
+  -ms-transform:rotateY(180deg)
+  unicode-bidi:bidi-override
+  direction:rtl
+
+.todo
+  background-color: lightblue
+  padding: 5px
+  width: 50%
+  margin: 20px auto
