@@ -14,18 +14,17 @@ model = {
 # and pass the newly transfomred data to the view.
 
 module.exports = {
-  view: () ->
+  controller: ->
+  view: ->
     return m(".footer", [
       m("hr"),
-      m("h2.title", model.title),
-      m("ul.setup", [
+      m("h2", model.title),
+      m("ul", [
         m("li", m.trust("In the terminal, stop the tutorial with
           <code>CTRL-C</code> or <code>CMD-C</code>.")),
-        m("li", m.trust("Enter <code>$ git co " +
-          model.lesson +
-          "</code>.")),
-        m("li", m.trust("Restart the tutorial with
-          <code>$ npm run tutorial</code>"))
+        m("li", m.trust("Reset: <code>$ git stash</code>.")),
+        m("li", m.trust("Change Lesson: <code>$ git co " + model.lesson + "</code>.")),
+        m("li", m.trust("Restart the tutorial: <code>$ npm run tutorial</code>"))
       ])
     ])
 }

@@ -16,7 +16,8 @@ view, it returns an object.</p>
 program flow is generally like this:<br>
 <code>m.mount(el, App) -&gt; App.controller() -&gt; App.view()
 -&gt; browser</code><br>
-Remember that if the controller is omitted, Mithril supplies one.
+Note that if the controller is omitted, in the background Mithril
+supplies one equal to a function that returns an empty object.
 Among the controller's many responsibilities, it may pass data to
 the view. This happens automatically. The view receives the
 returned object from the controller as a parameter. By convention,
@@ -26,24 +27,34 @@ object key/value pair: <code>displayLogo: true</code>, a boolean
 switch that turns the Logo component on and off. The view accesses
 it in the passed-in object: <code>ctrl.displayLogo</code>, then
 displays the Logo depending on it's value.</p>
+
 <div class="dothis">change the value of displayLogo from true to
 false. With the cursor still in the editor, save the file CTRL-S or
-CMD-S, and watch Logo disappear.</div>
+CMD-S, and watch the logo at the top of the page disappear.</div>
 
 <a href=
 "http://lhorie.github.io/mithril/mithril.component.html#parameterized-components"
 target="_blank" class="docs-icon"></a>
 
-<h3>Data as argument to the component</h3>
-<div class="dothis">see src/app.coffee. Notice how m.components()
-is called with 2 arguments. 'Header' and an optional object with
-'title' and 'subtitle' as keys.</div>
+<h3>Component agruments</h3>
 <p>It's possible to pass arguments to a component before it's
-rendered to the screen. An arguments objects is passed to both the
+rendered to the virtual DOM using the method: m.component.
+An "args" object is passed to both the
 controller and the view. A common technique is to provide default values
 within the component and optionally override those defaults in the
 arguments object.</p>
-<code>m.component(Header, {title: "Lesson 3"})</code>
+
+<code class="comment">// App.view</code><br>
+<code>m.component(Header, {title: "Lesson 3"})</code><br>
+...<br>
+<code class="comment">// Header</code><br>
+<code>controller: function(args){... //args.title = "Lesson 3"</code><br>
+<code>view: function(ctrl, args){... //args.title = "Lesson 3"</code>
+
+<div class="dothis">see src/app.coffee. Notice how m.component()
+is called with 2 arguments. 'Header' and an optional object with
+'title' and 'subtitle' as keys.</div>
+
 <div class="dothis">see src/components/Header.coffee</div>
 
 <a href=
@@ -53,21 +64,21 @@ target="_blank" class="docs-icon"></a>
 
 <h3>Data Model</h3>
 <p>In MVC, M is for model, V is for view, and C is for controller. Now let's
-look at role the model plays in supplying data to the view.</p>
+look at the role the model plays in supplying data to the view.</p>
 <p>The model acquires data from an outside source and passes it on to the rest
 of our app. Data could come from a
 <a href="http://rest.elkstein.org/2008/02/what-is-rest.html">REST</a>-ful
 connection to a database, a websocket, the browser's localstorage, or any
 type of web service like Twitter or Google Maps.
 In this lesson we are going to hard code the data in the model object.</p>
-<p>The model is usually an object with data properties and optionally,
-functions that massage the data. These functions are utilized in the view or
-more commonly, the controller. They can limit the data by date, 
-income, or popularity. They can convert units to the current locale. They can
-re-order the data, filter it, augment it. Functions supplied my the model
-object can manipulate the data in
-any way you wish.</p>
+
+<div class="dothis">See src/components/Footer.coffee</div>
+
+<p>The model is usually an object with data properties and possibly
+functions that massage the data. It can be internal to a component,
+but it's often defined outside to give data access to a controller, a view,
+and even other components. </p>
 <hr>
 <p>In the next lesson we'll see MVC in action. We'll learn how to control
 the flow of data through our app: how to retrieve it from the server,
-display it on screen, and the user interact with it.</p>
+display it on the screen, and receive input from user interaction.</p>

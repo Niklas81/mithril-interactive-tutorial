@@ -1,5 +1,8 @@
+::-webkit-scrollbar
+    display: none; 
+  
 .page
-  max-width: 500px
+  width: 480px
   margin: 0 auto
 
 .logo
@@ -42,15 +45,25 @@
     color: lightblue
     text-decoration: none
 
-.header, .footer
+.header,
+.footer
   background-color: wheat
-  padding: 10px 
+  padding: 10px
+
+.header
+  margin-bottom: 15px
+
+.footer
+  margin-top: 15px
 
 .dothis
   margin: 20px 30px 20px 20px
   color: #5a5
   background-color: lightgoldenrodyellow 
   font-weight: 800
+  padding: 10px
+  font-family: monospace
+
 .dothis::before
   content: "☞ "  
 
@@ -58,9 +71,13 @@ code.file
   color: lightseagreen
   background-color: #eee
 
+code.comment
+  color: #aaa
+  background-color: initial
+
 a.docs-icon
   float: right
-  margin-top:12px
+  margin-top:0
   background-color: cornflowerblue
   border: 5px solid
   border-color: cornflowerblue
@@ -77,3 +94,67 @@ a.docs-icon:hover
   background-color: crimson
   border-color: crimson
   text-decoration: none
+
+.menu
+  background: #ffe
+  border: 1px solid #ddd
+  display: block
+  font: Courier New
+  margin: 20px 0
+  padding: 5px 10px
+  clear: left
+
+.menu a
+  display:block
+  margin:0 0 10px
+
+.menu a:after
+  content:" \a0\a6\a0 "
+
+.footer .preview
+  margin: 15px 15px 0 15px
+  font-size: small
+
+.footer h2.title
+  float: left
+  font-size: 2.2rem
+
+a.fwd
+  float: right
+  clear: right
+  text-decoration: none
+
+a.fwd::after
+  content: "➤"
+  margin-right: 5px
+  font-size: 4rem
+  line-height: 65px
+
+a.rev
+  float: left
+  clear: left
+  text-decoration: none
+  -webkit-transform:rotateY(180deg)
+  -moz-transform:rotateY(180deg)
+  -o-transform:rotateY(180deg)
+  -ms-transform:rotateY(180deg)
+  unicode-bidi:bidi-override
+  direction:rtl
+
+a.rev::after
+  content: "➤"
+  margin-left: 5px
+  font-size: 4rem
+  line-height: 65px
+  -webkit-transform:rotateY(180deg)
+  -moz-transform:rotateY(180deg)
+  -o-transform:rotateY(180deg)
+  -ms-transform:rotateY(180deg)
+  unicode-bidi:bidi-override
+  direction:rtl
+
+.todo
+  background-color: lightblue
+  padding: 5px
+  width: 50%
+  margin: 20px auto

@@ -50,8 +50,8 @@ App = {
 # Header component. See Header.coffee
       
       m.component(Header, {title: "Lesson 3", subtitle: "Passing Data to the View"}),
-      m.component(Content),
-      m.component(Footer)
+      Content,
+      Footer
     ])
 }
 

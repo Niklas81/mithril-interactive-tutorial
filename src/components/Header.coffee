@@ -9,6 +9,7 @@ module.exports = {
   view: (ctrl, args) ->
     
 # set our title and subtitle from 'args' or set a default.
+# This is how we are able to everride defaults.
 
     title = if args and args.title then args.title else "A silly Lesson"
     subtitle = if args and args.subtitle then args.subtitle else "about silliness"
