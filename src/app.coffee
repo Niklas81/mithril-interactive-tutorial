@@ -108,7 +108,7 @@ App = {
     ])
 }
 
-# We mount (inject) App into to the body tag of the document.
+# We mount (inject) App into the body tag of the document.
 # Anything that might have been there before will be replaced.
 
 m.mount(document.body, App)
