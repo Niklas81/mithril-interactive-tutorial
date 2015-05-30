@@ -1,30 +1,20 @@
 # M.I.T. - Lesson 2 -- Enhancing the View
 
-# Mithril can be loaded with a script tag in the header of the page,
-# or we can include it with "require".
-
 m = require 'mithril'
 
-# Components are self contained objects with a view.
-
-#### It's a common error to create a component whose view
-#### returns an array of virtual elements.
-#### The view property of a component must return a virtual element,
-#### the result of a call to m().
-
-# m.component() can be called anywhere m() can.
+# Components are self contained objects with, at minimum, a view.
 
 App = {
   view: () ->
 
-# This view is returning a virtual element with one child element:
-# an array of components.
+# This view is returning a virtual element <div class="page"></div> 
+# with one child element: an array of components.
 
     return m(".page", [
-      m.component(Logo), 
-      m.component(Header),
-      m.component(Content),
-      m.component(Footer)
+      Logo, 
+      Header,
+      Content,
+      Footer
     ])
 }
 
@@ -79,7 +69,7 @@ Content = {
         is available in the view, and in the next lesson we'll learn
         to move variable data in and out of the view."),
       m("h3", "First, a little style"),
-      m(".dothis", "open src/index.jade in DevTools"),
+      m(".dothis", "open src/index.html in DevTools"),
       m("p", m.trust("We've given our app a modern look by adding a link to
         the <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
         CSS library in the header tag of
@@ -100,8 +90,9 @@ Content = {
         <code>m(\"a[href=http://mithril.js.org]\", {}, \"Mithril Home Page\")
         </code> ")),
       m(".dothis", "See how the href attributes are appended to the anchor
-        tags in the logo. Find the resulting HTML under the Elements tab."),
-      m("p", m.trust("Alternatively, HTML attributes can be added to the 
+        tags in the Logo component. Find the resulting HTML under the Elements tab."),
+      m("p", m.trust("Alternatively, HTML attributes can be added to the the second
+        argument to m(), the
         attributes object. In our code, the attributes object in the
         Header component view has an HTML <strong>title</strong> attribute.
         There are some special Mithril attributes
@@ -113,7 +104,7 @@ Content = {
       m("h3", "View Template Children"),
       m("p", m.trust("The last parameter of the <code>m()</code> method,
         children of the \"tag\" parameter, can be any combination of nested
-        strings and calls to <code>m.component()</code> and <code>m()</code>.")),
+        strings, template code, and components.")),
       m("a.docs-icon", {href:"http://mithril.js.org/mithril.trust.html", target:"_blank"}),
       m("h3", "m.trust()"),
 
@@ -130,11 +121,9 @@ Content = {
         We've had to rely on a seprate call to m() every time we've needed\n
         a new HTML tag. Mithril provides the m.trust() helper method\n
         to allow for more familiar HTML coding."),
-      m("strong", "☞ In the editor panel, notice we use m.trust()
+      m(".dothis", "In the editor panel, notice we use m.trust()
         wherever we require HTML tags within the text. We do not use it in
         this section. "),
-      m("br"),
-      m("br"),      
       m("p", "In the next lesson we'll learn to use variables\n 
         in our views. m.trust() doesn't understand variables.")
       m("hr"),
@@ -151,10 +140,11 @@ Content = {
 Footer = {
   view: () ->
     return m(".footer", [
-      m("h2.title", "Next: Passing Data to the View"),
-      m("ul.setup", [
+      m("h2", "Next: Passing Data to the View"),
+      m("ul", [
         m("li", m.trust("In the terminal, stop the tutorial with
           <code>CTRL-C</code> or <code>CMD-C</code>")),
+        m("li", m.trust("If you edited the code, reset with: <code>$ git stash")),
         m("li", m.trust("Enter <code>$ git co cs-lesson3</code>")),
         m("li", m.trust("Restart the tutorial with 
           <code>$ npm run tutorial</code>"))
