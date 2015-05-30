@@ -13,7 +13,7 @@ Demo =
   controller: ->
 
 # The return value of Pages.list()
-# will be a promise AND an m.prop function
+# will be an m.prop function that returns a promise.
     
     pages = Page.list()
     
@@ -26,7 +26,7 @@ Demo =
 # This component is injected into the DOM after the app
 # has been fully rendered to the screen.
 # When Demo is mounted, the AJAX call has not completed
-# so we render 'null' to the page.
+# so we render 'loading...' to the page.
 # When m.request completes, it causes a redraw,
 # which in turn calls the view function
 # which gets a value from ctrl.pages()
@@ -35,12 +35,13 @@ Demo =
   view: (ctrl)->
     return m(".example", [
 
-      if ctrl.pages()
-        ctrl.pages().map((page)->
+      if ctrl.pages()                      #has our promise resolved yet?
+        ctrl.pages().map((page)->          #yes: display a list of pages
           return m("a", { href: page.url }, page.title))
-      else null,
+      else m(".loading", "loading..."),    #no: keep the user calm
       
       m("button", { onclick: ctrl.rotate }, "Rotate links")
+    
     ])
 
 

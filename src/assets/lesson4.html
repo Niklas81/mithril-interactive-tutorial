@@ -4,7 +4,7 @@ slightly adapted to work with the tutorial. It's a component like any
 other. While Header, Content and Footer are nested components under App,
 the demo was injected after this page was rendered.</p>
 
-<div class="dothis">Refresh the browser and watch the demo load after
+<div class="dothis">Refresh the browser and watch the demo load (quickly) after
 the page is fully rendered.</div>
 <div class="dothis">src/components/Demo.coffee</div>
 
@@ -20,14 +20,25 @@ be in JSON format. See <code class=file>src/assets/pages.json</code></p>
 <p>The <strong>return value</strong> of <code>m.request()</code> is special in 2 ways.
 <ul>
 
-  <li>It's a <strong>promise</strong>
-<a href= "http://lhorie.github.io/mithril/mithril.deferred.html"
-target="_blank" class="docs-icon"></a></li>
-
-  <li>It's an <code>m.prop()</code> getter/setter
+  <li>It's an <code>m.prop()</code> <strong>getter/setter</strong>
   <a href= "http://lhorie.github.io/mithril/mithril.prop.html"
-target="_blank" class="docs-icon"></a></li>
+target="_blank" class="docs-icon"></a>
+  <p>
+  <code>toggle = m.prop()</code><code class="comment"> //create an m.prop</code><br>
+  <code>toggle("on")</code><code class="comment"> //set: toggle === "on"</code><br>
+  <code>toggle()</code><code class="comment"> //get: returns "on"</code>
+  </p>
+</li>
+
+  <li>It returns a <strong>promise</strong>
+<a href= "http://lhorie.github.io/mithril/mithril.deferred.html"
+target="_blank" class="docs-icon"></a>
+  <p>
+  <code>pages()</code><code class="comment"> //get: returns a promise</code>
+  </p></li>
+
 </ul>
+
 
 Our model object (Page) has only one property: <code>list</code>,
 whose value is a function that returns the JSON response from the AJAX
@@ -47,34 +58,37 @@ called twice in the view.</p>
 <code>rotate()</code> 😄</p>
 
 <h3>Waiting for a response</h3>
-<p>When the view function is called, Mithril will throw an error if
+<p>As discussed before, when Demo is mounted into the page,
+its controller function is called, much like a class constructor.
+Then the view is called with the controller object as its first argument (ctrl).
+When the view function is called, Mithril will throw an error if
 <code>ctrl.pages()</code> returns a null value, so we test it. If <code>m.request()</code>
 has returned with a response, we map the JSON to our template.
-If there is no response yet: <code>pages&nbsp;===&nbsp;null</code>, we add
-<code>m(null)</code> to the template -- which prints nothing.  
-</p>
+If there is no response yet: <code>pages&nbsp;===&nbsp;null</code>, we return
+a "loading..." message in case the server is slow.</p>
 
 <p>Another important feature of <code>m.request()</code> is that once
 it returns with the AJAX response, the view is called again and the
-screen is updated with the new data: Our demo starts to appear.</p>
+screen is updated with the new data: The "loading..." message is replaced
+with our demo component.</p>
 
 <h3>The Flow</h3>
-<p>Lets recap the each step after showDemo is called:
+<p>Lets recap each step after showDemo is called:
 <ul>
 <li>Demo is initialized in <code class="file">app.coffee</code></li>
 <li>Initialization means that Demo.controller is called</li>
-<li>The controller calls the <code>list</code> function in the model (Page)</li>
+<li>Demo.controller calls the <code>list</code> function in the model (Page)</li>
 <li><code>list</code> is an AJAX call which immediately returns an empty promise</li>
 <li>The view is called even though <code>list</code> has not returned</li>
 <li>The component is rendered to the screen without necessary data</li>
-<li>The AJAX call completes then forces a redraw</li>
+<li>The AJAX call completes then forces a redraw (view is called)</li>
 <li>The redraw fills in the missing data on the screen</li>
 </ul>
 
 <p>Two things to note:
 <ol>
-<li>Controllers only get called once in the life of the component</li>
-<li>Views get called every time the component is redrawn</li>
+<li>Controllers only get called once in the life of a component.</li>
+<li>Views get called every time the component is redrawn.</li>
 </ol>
 </p>
 
@@ -89,4 +103,3 @@ screen is updated with the new data: Our demo starts to appear.</p>
 
 We've now learned enough about Mithril to create a multi page app with
 links to individual lessons. We'll put it all together in the next lesson.
-This should be the last time you have to do this:

@@ -10,25 +10,29 @@ Footer = require "./components/Footer.coffee"
 App = {
 
   view: (ctrl) ->
+
+    # showDemo is a config function. We'll cover config in depth, later.
+    # What you need to know now, is that showDemo is called 
+    # after Mithril finishes drawing the screen.
+     
     showDemo = (el, isInitialized, context)->
       if not isInitialized then require "./components/Demo.coffee"
 
-# In the attributes object below, there is a special Mithril attribute
-# called config. Its value is the showDemo function from above.
-# config allows us to do work "after" the app is fully loaded.
-# Its function manipulates the real DOM.
-# We'll learn more about config in a later lesson. 
-
     return m(".page", {config: showDemo}, [
       
-      m.component(Logo),
+      Logo,
       
+# Both the Header and Footer components come with default values.
+# By calling m.component with an "args" object
+# we can override the defaults.
+# Footer has a "title" attribute we've decided not to override.
+
       m.component(Header, {
         title: "Lesson 4",
         subtitle: "Model, View, Controller"
       }),
       
-      m.component(Content),
+      Content,
       
       m.component(Footer, {
         nextLesson: "A Todo App",
