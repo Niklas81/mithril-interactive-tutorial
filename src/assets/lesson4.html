@@ -12,12 +12,13 @@ the page is fully rendered.</div>
 target="_blank" class="docs-icon"></a>
 
 <h3>m.request()</h3>
-<p>The links in the demo are not hard coded in the component. They need
-to be loaded from an outside source. We start by
+<p>The links in the demo above are not hard coded in the component. They are loaded
+from an outside source. We start by
 populating the model with data. <code>m.request()</code>
 is Mithril's built-in AJAX wrapper. By default, it expects the resonse to
 be in JSON format. See <code class=file>src/assets/pages.json</code></p>
-<p>The <strong>return value</strong> of <code>m.request()</code> is special in 2 ways.
+<p>The <strong>return value</strong> of <code>m.request()</code> is special
+in 2 ways.
 <ul>
 
   <li>It's an <code>m.prop()</code> <strong>getter/setter</strong>
@@ -51,8 +52,8 @@ a promise, an empty placeholder that will be filled as soon as
 loading even when it doesn't have all the data. The app feels faster
 and more responsive.
 </p>
-<p><code>pages</code> is also an <code>m.prop()</code> getter/setter function. To retrieve
-its value we must call <code>pages()</code> with no parameters. It's
+<p><code>pages</code> is also an <code>m.prop()</code> getter/setter function.
+To retrieve its value we must call <code>pages()</code> with no parameters. It's
 called twice in the view.</p>
 <p>App.controller also contains one incredibly useful function:
 <code>rotate()</code> 😄</p>
@@ -62,13 +63,14 @@ called twice in the view.</p>
 its controller function is called, much like a class constructor.
 Then the view is called with the controller object as its first argument (ctrl).
 When the view function is called, Mithril will throw an error if
-<code>ctrl.pages()</code> returns a null value, so we test it. If <code>m.request()</code>
+<code>ctrl.pages()</code> returns a null value, so we test it.
+If <code>m.request()</code>
 has returned with a response, we map the JSON to our template.
 If there is no response yet: <code>pages&nbsp;===&nbsp;null</code>, we return
-a "loading..." message in case the server is slow.</p>
+a "loading..." message for slow connections.</p>
 
-<p>Another important feature of <code>m.request()</code> is that once
-it returns with the AJAX response, the view is called again and the
+<p>When <code>m.request()</code> returns with the AJAX response,
+the view is called again and the
 screen is updated with the new data: The "loading..." message is replaced
 with our demo component.</p>
 
@@ -78,17 +80,17 @@ with our demo component.</p>
 <li>Demo is initialized in <code class="file">app.coffee</code></li>
 <li>Initialization means that Demo.controller is called</li>
 <li>Demo.controller calls the <code>list</code> function in the model (Page)</li>
-<li><code>list</code> is an AJAX call which immediately returns an empty promise</li>
+<li><code>list</code> immediately returns a getter/setter with an empty promise</li>
 <li>The view is called even though <code>list</code> has not returned</li>
 <li>The component is rendered to the screen without necessary data</li>
-<li>The AJAX call completes then forces a redraw (view is called)</li>
+<li>The AJAX request completes then forces a redraw (view is called)</li>
 <li>The redraw fills in the missing data on the screen</li>
 </ul>
 
 <p>Two things to note:
 <ol>
-<li>Controllers only get called once in the life of a component.</li>
-<li>Views get called every time the component is redrawn.</li>
+<li>The controller gets called only once in the lifetime of a component.</li>
+<li>The view gets called every time the component is redrawn.</li>
 </ol>
 </p>
 

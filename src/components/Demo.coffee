@@ -13,7 +13,7 @@ Demo =
   controller: ->
 
 # The return value of Pages.list()
-# will be an m.prop function that returns a promise.
+# will be an m.prop function that when called, returns a promise.
     
     pages = Page.list()
     
@@ -34,11 +34,10 @@ Demo =
 
   view: (ctrl)->
     return m(".example", [
-
-      if ctrl.pages()                      #has our promise resolved yet?
-        ctrl.pages().map((page)->          #yes: display a list of pages
+      if ctrl.pages()                              #has our promise resolved yet?
+        ctrl.pages().map((page)->                  #yes: display a list of pages
           return m("a", { href: page.url }, page.title))
-      else m(".loading", "loading..."),    #no: keep the user calm
+      else m(".loading", "loading..."),            #no: keep the user calm
       
       m("button", { onclick: ctrl.rotate }, "Rotate links")
     
