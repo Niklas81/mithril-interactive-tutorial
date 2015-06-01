@@ -1,0 +1,54 @@
+<p>
+The Controller should connect the Model with the View
+but shouldn't know anything about the inner workings of either. Our
+controller is too tightly coupled with the View and Model, so now we
+factor out our controller logic to the companion to our data model: the
+view-model.
+<a class="docs-icon"
+   href="http://mithril.js.org/getting-started.html#view-model"
+   target="_blank">
+</a>
+</p>
+<div class="dothis">
+  src/components/Todo5.4.coffee
+</div>
+<p>
+There are many definitions of the MVC paradigm. The role of the Model might be
+the most controversial. One approach is to make the model the single source
+of authority for all data state and view state.
+Our model will have these responsibilities:
+<ul>
+  <li>Store data in memory</li>
+  <li>Maintain the state of the data</li>
+  <li>Receive data from the UI</li>
+  <li>Maintain the state of the UI</li>
+</ul>
+In a real world scenario, data would be served-from and save-to some sort of
+database on a server. We've already learned how to get json data
+with m.request(). We'll learn to save data to the server in a later lesson.
+The view-model would be resposible for making this happen.
+</p>
+<p>
+This lesson is primarily contained in the code comments.
+The code in the Todo List component is exactly as seen on the
+<a href="http://mithril.js.org/getting-started.html" target="_blank">
+Mithril Getting Started</a> page. Carefully, read through the comments
+in <code class="file">Todo5.4.coffee</code> and feel free to play around.
+</p>
+<div class="dothis">
+Open the console<br>(ESC while the cursor is in the editor window)
+<h5>Try the following commands:</h5>
+<p>
+todo.vm.description("breathe more air")
+todo.vm.add(todo.vm.description)
+todo.vm.list.length
+todo.vm.list[0].description()
+</p>
+<p>
+Add more tasks through the user interface below.
+Then try those last two commands in the console with a different index.
+</p>
+</div>
+
+
+
