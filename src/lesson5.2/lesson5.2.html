@@ -1,39 +1,36 @@
-<p>The Controller decides what data in our Model should be available to the View. It may
-optionally manipulate that data as it passes through. The Controller can also pass input
-coming from the View back to the Model. In the next lesson we'll learn to simplify our
-controller.
-<a class="docs-icon"
-   href="http://mithril.js.org/getting-started.html#controller"
-   target="_blank">
-</a>
+<p>
+  Our Todo List begins life with no tasks. Input will come from the user through the View and 
+  we'll store new tasks in a Model. 
 </p>
 
 <div class="dothis">
-  src/components/Todo5.2.coffee
+  src/lesson5.2/Todo5.2.coffee
 </div>
 
-<h3>Bi-Directional Data Flow</h3>
-<a class="docs-icon"
-   href="http://mithril.js.org/getting-started.html#data-bindings"
+<p>The Model defines two classes:
+  <a class="docs-icon"
+   href="http://mithril.js.org/getting-started.html#model"
    target="_blank">
-</a>
-<p>Our controller is responsible for passing data back and forth
-between the model and the view. The <code>ctrl.add</code> method takes a
-description from the text input in the view, instantiates a new
-<code>todo.Todo</code> with the description, and adds it
-to our <code>todo.TodoList</code>.
-The input <code>value</code> is set when the
-<code>Add</code> button is clicked. We handle this by setting the input value
-with the m.prop getter/setter <code>ctrl.description()</code>.
-The Model must be updated as well. This requires the mithril function
-<code>m.withAttr()</code> which is explained thoroughly
-in the comments in the source code.
-<a class="docs-icon" href="http://lhorie.github.io/mithril/mithril.withAttr.html" target="_blank"></a>
+  </a>
 </p>
+<ul>
+<li>todo.Todo -- individual tasks with a desctiption and a "done" switch</li>
+<li>todo.TodoList -- an array of Todos for display in the View</li>
+</ul>
 
-<div class="dothis">
-  With minor changes to the code, see if you can add a date to each new task,
-  and instead of drawing a line through a "done" todo, remove it from the list.
-</div>
+<p>Each instance of the Todo class will store a description (string) of one task.</p>
+
+<p>Beyond storing data, the Model is also responsible for 
+managing component state.
+In our case, we need the Model to keep track of the "done" state of each Todo.
+When the user checks a task, "done" is set to true.</p>
+<code>done("true")</code>
+<p>A boulean switch like done/not-done is a perfect case for using an m.prop getter/setter.
+An input checkbox both sets and display the "done" state.</p>
+
+<p>
+  The TodoList is where we will store Todo instance objects added when the user
+  adds a new task.
+</p>
 
 

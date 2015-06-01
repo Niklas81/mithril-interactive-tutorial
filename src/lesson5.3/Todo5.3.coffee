@@ -1,112 +1,114 @@
-# Lesson 5.3 - The View-Model
+# Lesson 5.3 - The Model
 
 m = require "mithril"
 
-#Namespace
 todo = {}
 
-#Data Model
+# The Model provides these two classes.
+# Instances of these classes will store "description" data and "done" state.
+
 todo.Todo = (data) ->
   @description = m.prop(data.description)
   @done = m.prop(false)
   return
 
-#Data Model
 todo.TodoList = Array
 
-# We've moved the functionality of the controller into a view-model
-# • create a Todo
-# • store a description in the Todo
-# • add the Todo to the TodoList
-# • clear the input text box
 
-# todo.vm will be an IIFE: Immediatly Invoked Function Expression.
-# It returns an object with only one method: an init function.
-# The init function (when called later) will populate the object (vm)
-# with data storage (list, description) and functionality (add).
- 
-#View-Model 
-todo.vm = (->
-  
-  # the view-model starts out empty, we'll add only one function (init)
-  
-  vm = {}
-
-  # the init function (when called)
-  # adds properties and methods to the view-model
-  
-  vm.init = ->
-
-    # a running list of todos
-    vm.list = new todo.TodoList()
-
-    # a temporary slot to store the name of a new todo before it is created
-    vm.description = m.prop("")
-
-    vm.add = ->
-      if vm.description()
-
-        #add the Todo to the TodoList
-        vm.list.push new todo.Todo(description: vm.description())
-      
-        #clear the input for the next entry
-        vm.description ""
-
-# todo.vm is called immediately after it is defined (IIFE)
-# and it returns the vm object with one method: init
-  vm
-)()
-
-# The controller defines what part of the model is relevant for the current page.
-# In our case, there's only the view-model that handles everything.
+# The Controller gets called only once when the component is instantiated.
+# It can function like a class contructor
 
 todo.controller = ->
-  # The view-model object finally gets populated with data and functionality.
-  # This is all the controller does: initialize the view-model.
-  # It doesn't pass anyting to the view.
 
-  todo.vm.init()
+  # Lets collect properties and methods in an object that
+  # the controller function will return
 
-todo.view = ->
-  m ".todo", [
-    m "h4.title", "My Todo List"
-    m "input",
+  ctrl = {}
 
-      # The view accesses the view-model directly (todo.vm)
-      # No need for the controller
+  # This is our chance to create the TodoList.
+  # todo.Todo and todo.TodoList are javascript constructors.
+  # Thus, we can use the new keyword to create an instance.
 
-      # set the description in the data model
-      onchange: m.withAttr("value", todo.vm.description)
+  ctrl.list = new todo.TodoList()
 
-      # set the description of the todo on screen (input:value)
-      value: todo.vm.description()
+  # We need a place to store the description after it's been input into the View
+  # but before it's been added to the Model. This is temporary storage,
+  # unrelated to todo.Todo.description.
+  # First, we intialialize our temporary description with an empty string.
 
-    m "button",
-      
-      # add the Todo to the TodoList
-      # also clear the input for the next entry
-      onclick: todo.vm.add,
-      
-      "Add"
-    
-    m "table", [
-      todo.vm.list.map (task, index) ->
-        m "tr", [
-          m "td", [
-            m "input[type=checkbox]",
+  ctrl.description=  m.prop("")
 
-              # set "done" to the value of checked in the Todo model
-              onclick: m.withAttr("checked", task.done)
 
-              # set the checkbox on screen (input:checked) to true or false
-              checked: task.done()
-          ]
-          m "td",
-            style:
-              textDecoration: (if task.done() then "line-through" else "none"),
-            task.description()
-        ]
-    ]
-  ]
+# add View input to the Model:
+# Create a new Todo with a description and push it onto the TodoList.  
+
+  ctrl.add = ->
+    if ctrl.description()
+      ctrl.list.push(
+        new todo.Todo( { description: ctrl.description() } )
+      )
+      ctrl.description("")
+  return ctrl
+
+# The first argument to the view is the object returned by the controller.
+# This is done automatically by Mithril.
+
+todo.view = (ctrl)->
+    m(".todo",
+    [
+      m("h4.title", "My Todo List"),
+      m("input",
+
+# Our input tag defines two attributes: "onchange" and "value".
+
+        onchange: m.withAttr("value", ctrl.description)
+        value: ctrl.description()
+      )
+
+# "onchange" calls the Mithril function m.withAttr()
+# whose first parameter is the value of an HTML attribute found
+# on the current element.
+# In our case, the input tag's attribute is "value" - the string
+# from the input text field.
+
+# m.withAttr grabs the current input value on screen
+# and sets ctrl.description() with the value, to store it temporarily.
+
+# When the Add button is clicked Mithril redraws parts of the DOM
+# and the input string is lost.
+# So, we preserve that string in the input tag's "value" attribute.
+
+
+
+      m("button", { onclick: ctrl.add }, "Add")
+      m("table", [
+
+# Most components and most apps are just series of lists.
+# A common idiom in Mithril views is to map over an array
+# creating m("tag")'s along the way.
+
+        ctrl.list.map( (task, index) ->
+          m("tr", [
+            m("td", [
+              m("input[type=checkbox]",
+                onclick: m.withAttr("checked", task.done)
+                checked: task.done()
+              )
+            ])
+            m("td", {
+
+              # Draw a line through "done" tasks.
+              # Remember that CSS properties (keys) must be in camelCase.
+              # Values are strings of normal CSS with dashes.
+              # Add CSS only when required for the functionality of the component.
+
+                style: { textDecoration: (if task.done() then "line-through" else "none") }
+              }, 
+              task.description()
+            )
+          ])
+        )
+      ])
+    ])
 
 module.exports = todo

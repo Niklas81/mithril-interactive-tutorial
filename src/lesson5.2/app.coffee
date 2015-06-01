@@ -13,25 +13,21 @@ App = {
   view: () ->
     return m(".page", [
 
-      Logo,
+      m.component(Logo),
 
       m.component(Header, {
-        title: "Lesson 5 - Step 2",
-        subtitle: "The Controller"
+        title: "Lesson 5.2",
+        subtitle: "The Model"
       }),
 
       m(".lesson", m.trust(html)),
 
-      Todo,
+      m.component(Todo),
 
       m.component(Footer, {
-        preview: "Our TodoList app is perfectly valid.
-        If we are not interested in greater funtionality, component reuse,
-        or component cross communication, we should stop here
-        and move on to other parts of our app.
-        But there are ways to enhance our TodoList and we'll discuss them
-        in the next step of Lesson 5.",
-        nextLesson: "5.3 - The View-Model",
+        preview: "We need a way to connect the Model data with our View. We'll use a Controller
+        to funnel input and output between them and optionally manipulate the data as it passes through.",
+        nextLesson: "5.3 - The Controller",
         nextUrl: "/lesson5.3"
         prevUrl: "/lesson5.1"
       })

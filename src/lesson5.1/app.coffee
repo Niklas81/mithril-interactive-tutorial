@@ -1,4 +1,4 @@
-# Lesson 5.1 - Getting Started
+# Lesson 5.1 - The View
 
 m = require "mithril"
 
@@ -12,26 +12,27 @@ App = {
 
   view: () ->
     return m(".page", [
-
+      
       m.component(Logo),
-
+      
       m.component(Header, {
-        title: "Lesson 5 - Step 1",
-        subtitle: "The Model"
+        title: "Lesson 5.1",
+        subtitle: "The View"
       }),
-
+      
       m(".lesson", m.trust(html)),
-
+      
       m.component(Todo),
 
       m.component(Footer, {
-        preview: "We need a way to connect the Model data with our View. We'll use a Controller
-        to funnel input and output between them and optionally manipulate the data as it passes through.",
-        nextLesson: "5.2 - The Controller",
-        nextUrl: "/lesson5.2"
-        prevUrl: "/lesson5.0"
+        preview: "Before we can add a task we need a place to store
+          the data. In earlier lessons we used the model as a source
+          for our data. Now we are going to use it for storage.",
+        nextLesson: "5.2 - The Model",
+        nextUrl: "/lesson5.2",
+        prevUrl: "/"
       })
-
+      
     ])
 }
 

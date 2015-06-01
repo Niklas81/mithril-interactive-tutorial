@@ -4,9 +4,9 @@ Menu = require "./Menu.coffee"
 
 model = {
   preview: "What's next",
-  title: "Next Step: ",
+  title: "Next Lesson: ",
   nextLesson: "The one after this",
-  nextUrl: "/lesson5.0"
+  nextUrl: "/lesson5"
 }
 
 module.exports = {

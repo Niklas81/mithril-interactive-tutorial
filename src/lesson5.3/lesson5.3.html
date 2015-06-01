@@ -1,37 +1,42 @@
-<p>
-The Controller should connect the Model with the View
-but shouldn't know anything about the inner workings of either. Our
-controller is too tightly coupled with the View and Model, so now we
-factor out our controller logic to the companion to our data model: the
-view-model.
+<p>The Controller decides what data in our Model should be available to the View. It may
+optionally manipulate that data as it passes through. The Controller can also pass input
+coming from the View back to the Model. In the next lesson we'll learn to simplify our
+controller.
 <a class="docs-icon"
-   href="http://mithril.js.org/getting-started.html#view-model"
+   href="http://mithril.js.org/getting-started.html#controller"
    target="_blank">
 </a>
 </p>
+
 <div class="dothis">
   src/components/Todo5.3.coffee
 </div>
-<p>
-There are many definitions of the MVC paradigm. The role of the Model might be
-the most controversial. One approach is to make the model the single source
-of authority for all data state and view state.
-Our model will have these responsibilities:
-<ul>
-  <li>Store data in memory</li>
-  <li>Maintain the state of the data</li>
-  <li>Receive data from the UI</li>
-  <li>Maintain the state of the UI</li>
-</ul>
-</p>
-<p>
-The code in the Todo List app is exactly as seen on the
-<a href="http://mithril.js.org/getting-started.html" target="_blank">
-Mithril Getting Started</a> page. It has been heavily commented.
-Carefully, read through the comments
-in <code class="file">Todo5.3.coffee</code>
+
+<h3>Bi-Directional Data Flow</h3>
+<a class="docs-icon"
+   href="http://mithril.js.org/getting-started.html#data-bindings"
+   target="_blank">
+</a>
+<p>Our controller is responsible for passing data back and forth
+between the model and the view. The <code>ctrl.add</code> method takes a
+description from the text input in the view, instantiates a new
+<code>todo.Todo</code> with that description, and adds it
+to our <code>todo.TodoList</code>.
+The input <code>value</code> is set when the
+<code>Add</code> button is clicked. We handle this by setting the input value
+with the m.prop getter/setter <code>ctrl.description()</code>.
+The Model must be updated as well. This requires the mithril function
+<code>m.withAttr()</code> which is explained thoroughly
+in the comments in the source code.
+<a class="docs-icon" href="http://lhorie.github.io/mithril/mithril.withAttr.html" target="_blank"></a>
 </p>
 
-
+<div class="dothis">
+  With minor changes to the code, see if you can add a date to each new task,
+  and instead of drawing a line through a "done" todo, remove it from the list.
+</div>
+<p>
+Try out our working Todo List.
+</p>
 
 

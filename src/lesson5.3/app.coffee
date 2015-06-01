@@ -1,4 +1,4 @@
-# Lesson 5.3 - The View-Model
+# Lesson 5.3 - The Controller
 
 m = require "mithril"
 
@@ -16,8 +16,8 @@ App = {
       Logo,
 
       m.component(Header, {
-        title: "Lesson 5 - Step 3",
-        subtitle: "The View-Model"
+        title: "Lesson 5.3",
+        subtitle: "The Controller"
       }),
 
       m(".lesson", m.trust(html)),
@@ -25,14 +25,14 @@ App = {
       Todo,
 
       m.component(Footer, {
-        preview: "In Lesson 5 we have learned to create a basic, but scalable
-        component. Each part of Lesson 5 was a full app constructed of several
-        components. We moved step-to-step by clicking on links and loading
-        new pages. Next we will learn how to build a Single Page App (SPA) that
-        loads once but redraws to give the illusion of separate pages.",
-        title: "Next Lesson: ",
-        nextLesson: "6 - Single Page App",
-        nextUrl: "/lesson5.4",
+        preview: "Our TodoList component is perfectly valid.
+        If we are not interested in greater funtionality, component reuse,
+        or component cross communication, we should stop here
+        and move on to other parts of our app.
+        But there are ways to enhance our TodoList and we'll discuss them
+        in Lesson 5.4",
+        nextLesson: "5.4 - The View-Model",
+        nextUrl: "/lesson5.4"
         prevUrl: "/lesson5.2"
       })
 

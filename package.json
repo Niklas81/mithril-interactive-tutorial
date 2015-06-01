@@ -15,10 +15,9 @@
     "watch-stylus": "stylus -w src/styles -o build/styles",
     "watch-js": "watchify src/app.coffee -v -d -t stringify -t coffeeify -o build/bundle.js --list",
     "build": "npm run clean-build && npm run copy-assets && browserify src/app.coffee -t coffeeify -o build/bundle.js && stylus src/ -o build/",
-    "make-directories-lesson5": "mkdir build/styles; mkdir build/lesson5.0; mkdir build/lesson5.1; mkdir build/lesson5.2; mkdir build/lesson5.3;",
-    "tutorial": "npm run clean-build; npm run make-directories-lesson5; npm run copy-assets && npm run copy-lessons && npm run copy-html; npm run watch-lesson5 & npm run watch-stylus & npm run browser-sync",
-    "watch-lesson5": "watchify --verbose -t stringify -t coffeeify src/app.coffee src/lesson5.0/app.coffee src/lesson5.1/app.coffee src/lesson5.2/app.coffee src/lesson5.3/app.coffee -p [factor-bundle -o build/bundle.js -o build/lesson5.0/bundle.js -o build/lesson5.1/bundle.js -o build/lesson5.2/bundle.js -o build/lesson5.3/bundle.js] -o build/common.js",
-    "browserify": "browserify src/lesson5.0/app.coffee src/lesson5.1/app.coffee src/lesson5.2/app.coffee src/lesson5.3/app.coffee -t stringify -t coffeeify  -p [factor-bundle -o build/lesson5.0/bundle.js -o build/lesson5.1/bundle.js -o build/lesson5.2/bundle.js -o build/lesson5.3/bundle.js] -o build/common.js",
+    "tutorial": "npm run clean-build; npm run make-directories; npm run copy-assets && npm run copy-lessons && npm run copy-html; npm run watch-lesson5 & npm run watch-stylus & npm run browser-sync",
+    "watch-lesson5": "watchify --verbose -t stringify -t coffeeify src/app.coffee src/lesson5.1/app.coffee src/lesson5.2/app.coffee src/lesson5.3/app.coffee src/lesson5.4/app.coffee -p [factor-bundle -o build/bundle.js -o build/lesson5.1/bundle.js -o build/lesson5.2/bundle.js -o build/lesson5.3/bundle.js -o build/lesson5.4/bundle.js] -o build/common.js",
+    "browserify": "browserify src/lesson5.1/app.coffee src/lesson5.2/app.coffee src/lesson5.3/app.coffee src/lesson5.4/app.coffee -t stringify -t coffeeify  -p [factor-bundle -o build/lesson5.1/bundle.js -o build/lesson5.2/bundle.js -o build/lesson5.3/bundle.js -o build/lesson5.4/bundle.js] -o build/common.js",
     "build-lesson5": "npm run clean-build; npm run make-directories-lesson5; npm run copy-assets && npm run copy-lessons; npm run browserify && stylus src/ -o build/"
   },
   "devDependencies": {
