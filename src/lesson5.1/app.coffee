@@ -16,7 +16,7 @@ App = {
       m.component(Logo),
 
       m.component(Header, {
-        title: "Lesson 5.1",
+        title: "Lesson 5 - Step 1",
         subtitle: "The Model"
       }),
 

@@ -16,7 +16,7 @@ App = {
       m.component(Logo),
       
       m.component(Header, {
-        title: "Lesson 5.0",
+        title: "lesson 5 - Step 0",
         subtitle: "The View"
       }),
       
@@ -25,8 +25,9 @@ App = {
       m.component(Todo),
 
       m.component(Footer, {
-        preview: "Before we can add a task we need a place to store the data. So far, we've used the model as a source
-for our data. Now we are going to use it for storage.",
+        preview: "Before we can add a task we need a place to store
+          the data. So far, we've used the model only as a source
+          for our data. Now we are going to use it for storage.",
         nextLesson: "5.1 - The Model",
         nextUrl: "/lesson5.1",
         prevUrl: "/"

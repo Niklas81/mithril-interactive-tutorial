@@ -16,10 +16,11 @@ todo.TodoList = Array
 
 
 # The Controller gets called only once when the component is instantiated.
+# It can function like a class contructor
 
 todo.controller = ->
 
-  # Lets collect properties and methods in an object that we'll return
+  # Lets collect properties and methods in an object that controller will return
 
   ctrl = {}
 
@@ -29,16 +30,16 @@ todo.controller = ->
 
   ctrl.list = new todo.TodoList()
 
-  # We need a place to store the description after it's been entered into the View
-  # but before it's been added to the Model. This is temporary storage, unrelated to
-  # todo.Todo.description
-
-  # Set the intial descrtiption to an empty string
+  # We need a place to store the description after it's been input into the View
+  # but before it's been added to the Model. This is temporary storage,
+  # unrelated to todo.Todo.description.
+  # First, we intialialize our temporary description with an empty string.
 
   ctrl.description=  m.prop("")
 
 
-  # This is how we get View input into the Model
+# add View input to the Model:
+# Create a new Todo with a description and push it onto the TodoList.  
 
   ctrl.add = ->
     if ctrl.description()
@@ -46,13 +47,12 @@ todo.controller = ->
         new todo.Todo( { description: ctrl.description() } )
       )
       ctrl.description("")
-
   return ctrl
 
-# The first argument to the View is the object returned by the Controller.
-# This is done automatically by Mithril
+# The first argument to the view is the object returned by the controller.
+# This is done automatically by Mithril.
 
-todo.view = (c)->
+todo.view = (ctrl)->
     m(".todo",
     [
       m("h4.title", "My Todo List"),
@@ -60,31 +60,33 @@ todo.view = (c)->
 
 # Our input tag defines two attributes: "onchange" and "value".
 
-# "onchange" calls the Mithril function m.withAttr
-# whose first parameter is the value of an HTML attribute found on the current element.
-# In our case, the input tag's attribute is "value" - the string from the input text field.
-
-# m.withAttr grabs the current input value on screen and calls c.description()
-# with the value, to store it temporarily.
-
-# We've defined c.description() in the controller. It pushes a new Todo on the TodoList array.
-# The new Todo is instantiated with its description set to the c.description() temporary value.
-
-# When the Add button is clicked Mithril redraws parts of the DOM and the input string is lost.
-# We preserve that string in the input tag's "value" attribute.
-
-        onchange: m.withAttr("value", c.description)
-        value: c.description()
-
+        onchange: m.withAttr("value", ctrl.description)
+        value: ctrl.description()
       )
-      m("button", { onclick: c.add }, "Add")
+
+# "onchange" calls the Mithril function m.withAttr()
+# whose first parameter is the value of an HTML attribute found
+# on the current element.
+# In our case, the input tag's attribute is "value" - the string
+# from the input text field.
+
+# m.withAttr grabs the current input value on screen
+# and sets ctrl.description() with the value, to store it temporarily.
+
+# When the Add button is clicked Mithril redraws parts of the DOM
+# and the input string is lost.
+# So, we preserve that string in the input tag's "value" attribute.
+
+
+
+      m("button", { onclick: ctrl.add }, "Add")
       m("table", [
 
 # Most components and most apps are just series of lists.
-# A common idiom in Mithril Views is to map over an array
+# A common idiom in Mithril views is to map over an array
 # creating m("tag")'s along the way.
 
-        c.list.map( (task, index) ->
+        ctrl.list.map( (task, index) ->
           m("tr", [
             m("td", [
               m("input[type=checkbox]",
@@ -92,7 +94,15 @@ todo.view = (c)->
                 checked: task.done()
               )
             ])
-            m("td", { style: { textDecoration: (if task.done() then "line-through" else "none") } }, 
+            m("td", {
+
+              # Draw a line through "done" tasks.
+              # Remember that CSS properties (keys) must be in camelCase.
+              # Values are strings of normal CSS with dashes.
+              # Add CSS only when required for the functionality of the component.
+
+                style: { textDecoration: (if task.done() then "line-through" else "none") }
+              }, 
               task.description()
             )
           ])

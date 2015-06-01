@@ -13,23 +13,24 @@ App = {
   view: () ->
     return m(".page", [
 
-      m.component(Logo),
+      Logo,
 
       m.component(Header, {
-        title: "Lesson 5.2",
+        title: "Lesson 5 - Step 2",
         subtitle: "The Controller"
       }),
 
       m(".lesson", m.trust(html)),
 
-      m.component(Todo),
+      Todo,
 
       m.component(Footer, {
-        preview: "The Controller should connect the Model with the View
-        but shouldn't know anything about the inner workings of either. Our
-        controller is too tightly coupled with the the View and Model, so next we
-        factor out our controller logic to the companion to our data model: the
-        view-model.",
+        preview: "Our TodoList app is perfectly valid.
+        If we are not interested in greater funtionality, component reuse,
+        or component cross communication, we should stop here
+        and move on to other parts of our app.
+        But there are ways to enhance our TodoList and we'll discuss them
+        in the next step of Lesson 5.",
         nextLesson: "5.3 - The View-Model",
         nextUrl: "/lesson5.3"
         prevUrl: "/lesson5.1"

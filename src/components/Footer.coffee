@@ -4,7 +4,7 @@ Menu = require "./Menu.coffee"
 
 model = {
   preview: "What's next",
-  title: "Next Lesson: ",
+  title: "Next Step: ",
   nextLesson: "The one after this",
   nextUrl: "/lesson5.0"
 }

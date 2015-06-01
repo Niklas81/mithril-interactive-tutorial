@@ -25,7 +25,10 @@ App = {
       m.component(Todo),
 
       m.component(Footer, {
-        preview: "We'll begin by creating a prototype of our app.",
+        preview: "We'll begin by creating a prototype of our app. Don't
+        forget to close open files in the editor to avoid confusing them
+        with the next step.",
+        title: "Step: ",
         nextLesson: "5.0 - The View",
         nextUrl: "/lesson5.0/",
         prevUrl: null

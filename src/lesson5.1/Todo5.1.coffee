@@ -1,7 +1,8 @@
-# Lesson 5.1 - The Model
+# Step 5.1 - The Model
 
 m = require "mithril"
 
+# namespace
 todo = {}
 
 # The Todo List is a self contained component.
@@ -19,7 +20,7 @@ todo.Todo = (data) ->
   return
 
 #the TodoList class is a list of Todo's.
-#
+
 todo.TodoList = Array
 
 
