@@ -18,7 +18,7 @@ App = {
         m("h3.about", "About Mithril"),
         m("p", [
           "If you wish to know what Mithril is all about,
-          why you should be using it, and where to find out more,
+          why you should be using it, and where to get help,
           everything you need is on the ",
           m("a[href=http://mithril.js.org]", "Mithril home page.")
         ]),
@@ -26,7 +26,7 @@ App = {
           "This tutorial is located on Github.
           If you have not read the README file, ",
           m("a[href=https://github.com/pelonpelon/mithril_tutoral]",
-            "go there now before continuing")
+            "go there now before continuing.")
         ]),
         m("h3.requirements", "Requirements"),
         m("p",
@@ -48,8 +48,9 @@ App = {
             by clicking/CTRL-clicking the window icon to the far right in the 
             DevTools toolbar."),
           m("p", m("img[src=assets/MIT-toolbar.png]")),
-          m("p", "You eventually want your windows to look like this. Stretch
-          the DevTools window wide to get the best view of the editor.
+          m("p", "You eventually want your windows to look like this. The
+          tutorial is only 480px wide, so stretch
+          the DevTools window to get the best view of the editor.
           The ESC key toggles the console. Other shortcuts are found in Settings."),
           m("p", m("img[src=assets/MIT-full_page-400.png]")),
           m("li", "Open the Sources tab."),
@@ -69,6 +70,11 @@ App = {
             you should see the Mithril file that produces this page. Although
             it contains perfectly good Mithril code, your apps will look
             quite different."
+          ),
+          m("p", "Every lesson in this tutorial will contain an assets folder
+          for images, static HTML, and data files, as well as a styles folder for
+          CSS. The index.html file loads JS and CSS. The app.coffee file
+          requires other script files and contains its own javascript." 
           )
         ]),
         m("hr"),
