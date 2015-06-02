@@ -54,6 +54,7 @@ todo.controller = ->
 # This is done automatically by Mithril.
 
 todo.view = (ctrl)->
+
     m(".todo",
     [
       m("h4.title", "My Todo List"),

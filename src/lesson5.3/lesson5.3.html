@@ -12,19 +12,28 @@ controller.
   src/components/Todo5.3.coffee
 </div>
 
-<h3>Bi-Directional Data Flow</h3>
+<h3>Data Binding</h3>
 <a class="docs-icon"
    href="http://mithril.js.org/getting-started.html#data-bindings"
    target="_blank">
 </a>
 <p>Our controller is responsible for passing data back and forth
 between the model and the view. The <code>ctrl.add</code> method takes a
-description from the text input in the view, instantiates a new
+description from the text input, instantiates a new
 <code>todo.Todo</code> with that description, and adds it
 to our <code>todo.TodoList</code>.
-The input <code>value</code> is set when the
-<code>Add</code> button is clicked. We handle this by setting the input value
-with the m.prop getter/setter <code>ctrl.description()</code>.
+</p>
+<p>
+The input "value" attribute is set when the
+Add button is clicked. We handle this by binding "value" to the result of 
+<code>ctrl.description()</code>. After
+<code>ctrl.add</code> pushes a new todo on the list, it resets the
+description to an empty string. Since the input "value" attribute is bound
+to the description getter/setter, it becomes an
+empty string as well. The input text area is blank again.
+</p>
+<p>
+<h3>Bi-Directional Data Flow</h3>
 The Model must be updated as well. This requires the mithril function
 <code>m.withAttr()</code> which is explained thoroughly
 in the comments in the source code.
