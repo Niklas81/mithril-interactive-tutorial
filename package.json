@@ -6,7 +6,7 @@
   "scripts": {
     "tutorial": "npm run clean-build; npm run make-directories; npm run copy-things; npm run watch-js & npm run watch-stylus & npm run browser-sync",
     "clean-build": "rm -rf build",
-    "make-directories": "mkdir build build/styles build/assets",
+    "make-directories": "mkdir build build/styles",
     "copy-things": "cp -Rf src/assets build/ && cp -Rf src/*.html build/",
     "copy-lessons": "cp -Rf src/lesson* build/",
     "browser-sync": "cd ./build && browser-sync start --config=../bs-config.js",

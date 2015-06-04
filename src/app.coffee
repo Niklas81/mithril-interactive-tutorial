@@ -20,6 +20,7 @@ App = {
 # in the Elements pane.
     
       m(".header", [
+        m("a[href=https://github.com/pelonpelon/mithril-interactive-tutorial/tree/cs-lesson1][target=_blank]", "M.I.T")
         m("h1.title", "Lesson 1"),
         m("h2.subtitle", "Hello World")
       ]),
@@ -28,15 +29,16 @@ App = {
       m(".content", [
         m("strong", "☞ In DevTools, open src/app.coffee."),
         m("p", "app.coffee is the file that produced
-          the web page you are reading now. It's scattered with comments
-          to help you understand how Mithril works."),
+          the web page you are reading now."),
         m("h3", "The App"),
         m("p", "In the code editor of DevTools,
           notice the object called \'App\'. It's a Mithril component, and its
-          only property is 'view', the value of which is a function. That
-          function returns a template describing what we want
-          to display on screen. Mithril interprets the template and inserts
-          the resulting HTML into the page."),
+          only property is 'view', the value of which is a function.
+          The view function returns a template describing what we want
+          to display on screen. Mithril interprets the template,
+          assembles a virtual DOM tree in memory, then inserts
+          the resulting HTML into the page. The hard work is done in
+          javascript so the browser page loads lightening fast."),
 
         m("h3", "The View"),
         m("p", "The view produces what finally appears in the browser window.
@@ -44,22 +46,24 @@ App = {
           produces a virtual (in memory) DOM element. Once all virtual DOM elements
           are assembled, they are injected into the browser DOM (the web page).
           The first parameter of the m() function
-          designates an HTML tag such as \'h1\' or \'p\.' An id or
+          designates an HTML tag such as \"h1\" or \"p\". An id or
           any number of classes can be appended to the tag with
           the usual [#] and [.] notation."),
-        m("code", "m(\"div#container.nobkg.themed\")"),
+        m("code", "m(\"div#container.nobkg.darktheme\")"),
         m("p", "If CSS classes or id's are found
           without an HTML tag, Mithril converts the parameter into a
-          \'div\' tag and appends the class or id."),
-        m("strong", "☞ The .page class is an example of Mithril
+          \'div\' tag and appends classes or id."),
+        m("code", "m(\".page\") === <div class=\"page\"></div>"),
+        m("p", m("strong", "☞ The .page class in app.coffee
+          is an example of Mithril
           automatically inserting a missing tag.
           Compare the first line of the view function
           to the resulting HTML in the Elements panel.
-          Look for <div class=\"page\">."),
+          Look for <div class=\"page\">.")),
         m("p", "The last parameter of the m() function
           is the inner part of the HTML tag (its children).
           As with HTML, this can be text or more HTML.
-          In Mithril, more HTML means more m() calls. When the tag
+          In Mithril, more HTML means more m() calls or components. When the tag
           needs to contain more than one string or one call to m(),
           the parameter must be an array with any combination of both."),
         m("strong", "☞ In the code, notice the use either arrays (ie. \".header\") or simple
@@ -90,7 +94,7 @@ App = {
           (not an array !!). App is considered a top-level component. It
           stands alone and will never be part of another component. It
           uniquely may return an array in its view, as we shall see in
-          the next lesson. It's possible to have more than on top-level
+          the next lesson. It's possible to have more than one top-level
           component on a page."),
         m("hr"),
         m("ul", [
