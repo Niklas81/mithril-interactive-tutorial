@@ -20,15 +20,10 @@ App = {
 # Only HTML attributes are allowed in brackets immediately after
 # the tag parameter.
 # Notice there is no comma between pairs of brackets -- [][][] etc
-
       m(".logo", [
-        m("a.mit        
-          [href=https://github.com/pelonpelon/mithril-interactive-tutorial/tree/cs-lesson1]
-          [target=_blank]",
-          "M.I.T."
-        ),
-        m(".icon", "○"),
-        m("a.mithril[href=http://mithril.js.org][target=blank]", "Mithril")
+        m("a.mit[href=https://github.com/pelonpelon/mithril-interactive-tutorial/tree/cs-lesson1][target=_blank]", "M.I.T."),
+        m("a.mithril[href=http://mithril.js.org][target=_blank]", "Mithril"),
+        m(".icon", "○")
       ]),
  
 # Compare this template fragment to the resulting <div class=header...
