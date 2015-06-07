@@ -19,7 +19,7 @@
 
   .mithril
     float: right
-    margin-right: 5px
+    margin: 0 5px
     font-size: 1.5rem
     font-family: Georgia
     font-style: italic
@@ -41,7 +41,7 @@
     position: absolute
     margin: -0.17em 0 0 -0.5em
 
-  .mit:hover, .mithril:hover, .icon:hover
+  .mit:hover, .mithril:hover
     color: lightblue
     text-decoration: none
 
@@ -91,6 +91,22 @@ a.docs-icon:hover
   border-color: crimson
   text-decoration: none
 
+a.ex
+  background: #5a5;
+  color: #fff;
+  padding: 3px;
+  margin: 0 3px;
+  width: 10px;
+  height: 10px;
+  font-size: .9rem;
+
+a.ex::before
+  content: "EX"
+
+a.ex:hover
+  background-color: crimson
+  text-decoration: none
+  
 .menu
   background: #ffe
   border: 1px solid #ddd

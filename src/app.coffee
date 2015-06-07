@@ -9,6 +9,11 @@ App = {
   view: ()->
     return m(".page", [
 
+      m(".logo[href=http://mithril.js.org]", [
+        m(".mit", "M.I.T."),
+        m("a.mithril[href=http://mithril.js.org][target=_blank]", "Mithril"),
+        m(".icon", "○")
+      ]),
       m(".header", [
         m("h1.title", "Mithril Interactive Tutorial"),
         m("h2.subtitle", "Introduction"),
@@ -17,10 +22,10 @@ App = {
       m(".content", [
         m("h3.about", "About Mithril"),
         m("p", [
+          m("a.docs-icon[href=http://mithril.js.org]"),
           "If you wish to know what Mithril is all about,
           why you should be using it, and where to get help,
-          everything you need is on the ",
-          m("a[href=http://mithril.js.org]", "Mithril home page.")
+          everything you need is on the Mithril Home Page."
         ]),
         m("p", [
           "This tutorial is located on Github.
