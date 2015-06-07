@@ -7,12 +7,12 @@
     "tutorial": "npm run clean-build; npm run make-directories; npm run copy-assets && npm run copy-lessons && npm run copy-html; npm run watch-js & npm run watch-stylus & npm run browser-sync",
     "clean-build": "rm -rf build/*",
     "make-directories": "mkdir build/styles",
-    "copy-assets": "cp -Rf src/assets build/",
+    "copy-assets": "cp -Rf src/assets build/ && cp -Rf node_modules/bootstrap/dist/css/bootstrap.min.css build/styles/",
     "copy-html": "cp -Rf src/*.html build/",
     "copy-lessons": "cp -Rf src/lesson* build/",
     "browser-sync": "cd ./build && browser-sync start --config=../bs-config.js",
     "watch-stylus": "stylus -w src/styles -o build/styles",
-    "watch-js": "watchify --verbose -t stringify -t coffeeify src/app.coffee src/lesson5.1/app.coffee src/lesson5.2/app.coffee src/lesson5.3/app.coffee src/lesson5.4/app.coffee -p [factor-bundle -o build/bundle.js -o build/lesson5.1/bundle.js -o build/lesson5.2/bundle.js -o build/lesson5.3/bundle.js -o build/lesson5.4/bundle.js] -o build/common.js"
+    "watch-js": "watchify --verbose -t stringify -t coffeeify src/app.coffee -o build/bundle.js"
   },
   "devDependencies": {
     "browserify": "",
@@ -22,7 +22,8 @@
     "mithril": "~0.2.0",
     "stringify": "~3.1.0",
     "factor-bundle": "~2.3.3",
-    "browser-sync": "~2.7.1"
+    "browser-sync": "~2.7.1",
+    "bootstrap": "~3.3.4"
   },
   "author": "pelonpelon",
   "license": "MIT"

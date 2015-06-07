@@ -1,15 +1,14 @@
 m = require "mithril"
 
 module.exports = {
-  view: () ->
+  view: (ctrl, args) ->
 
-    # These anchor tags include the "href"" attribute inside square brackets.
-    # Alternatively, The "href" could have been a member of the attributes
-    # object, as "target" is here.
+    mitURL = if args and args.mitURL then args.mitURL
+    else "https://github.com/pelonpelon/mithril-interactive-tutorial"
              
     return m(".logo", [
 
-      m("a[href=https://github.com/pelonpelon/mithril-interactive-tutorial]",
+      m("a[href=" + mitURL + "]",
         { target: "_blank" },
         m("span.mit", "M.I.T.")),
 

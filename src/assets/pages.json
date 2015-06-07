@@ -1,7 +1,0 @@
-[
-{"title": "Lesson 5", "subtitle": "A Todo App", "url": "/", "nextLesson": "The View", "nextUrl": "/lesson5.1", "previousUrl": null },
-{"title": "Step 5.1", "subtitle": "The View", "url": "/lesson5.1", "nextLesson": "The Model", "nextUrl": "/lesson5.2", "previousUrl": "/" },
-{"title": "Step 5.2", "subtitle": "The Model", "url": "/lesson5.2", "nextLesson": "The Controller", "nextUrl": "/lesson5.2", "previousUrl": null },
-{"title": "Step 5.3", "subtitle": "The Controller", "url": "/lesson5.3", "nextLesson": "The View-Model", "nextUrl": "/lesson5.2", "previousUrl": null },
-{"title": "Step 5.4", "subtitle": "The View-Model", "url": "/lesson5.4", "nextLesson": "", "nextUrl": "", "previousUrl": null }
-]

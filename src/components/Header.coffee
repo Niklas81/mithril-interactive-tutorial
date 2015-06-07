@@ -12,7 +12,8 @@ module.exports = {
 
     title = if args and args.title then args.title else "A silly Lesson"
     subtitle = if args and args.subtitle then args.subtitle else "about silliness"
-
+    intro = if args and args.intro then args.intro else "more silliness"
+    
 # Like 'title' and 'href', style can be placed in the attributes object
 # The style object is just javascript so camelCasing is required.
 
@@ -23,7 +24,8 @@ module.exports = {
       }},
     [
       m("h1.title", title ),
-      m("h2.subtitle", subtitle)
+      m("h2.subtitle", subtitle),
+      m("p.intro", intro)
     ])
 }
 
