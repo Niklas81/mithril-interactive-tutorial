@@ -1,6 +1,8 @@
 ::-webkit-scrollbar
-    display: none; 
-  
+    display: none;
+p
+  margin: 10px 0
+
 .page
   width: 480px
   margin: 0 auto
@@ -53,19 +55,26 @@
 .header
   margin-bottom: 15px
 
+.header .intro
+  font-size: .9em
+  font-weight: bold
+
+.content .mit-panels
+  overflow: hidden
+
 .footer
   margin-top: 15px
 
 .dothis
   margin: 20px 30px 20px 20px
   color: #5a5
-  background-color: lightgoldenrodyellow 
+  background-color: lightgoldenrodyellow
   font-weight: 800
   padding: 10px
   font-family: monospace
 
 .dothis::before
-  content: "☞ "  
+  content: "☞ "
 
 code.file
   color: lightseagreen
@@ -106,7 +115,12 @@ a.ex::before
 a.ex:hover
   background-color: crimson
   text-decoration: none
-  
+
+.error
+  background-color: crimson
+  color: #fff
+  padding: 0 3px
+
 .menu
   background: #ffe
   border: 1px solid #ddd
@@ -120,8 +134,9 @@ a.ex:hover
   display:block
   margin:0 0 10px
 
-.menu a:after
-  content:" \a0\a6\a0 "
+//.footer
+//  position: absolute
+//  width: 100%
 
 .footer .preview
   margin: 15px 15px 0 15px
@@ -170,3 +185,6 @@ a.rev::after
   padding: 5px
   width: 50%
   margin: 20px auto
+
+.todo input[type=checkbox]
+  margin-right: 5px
