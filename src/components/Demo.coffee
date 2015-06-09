@@ -43,7 +43,6 @@ Demo =
     
     ])
 
-
 #initialize
 m.mount(document.getElementById("example"), Demo)
 

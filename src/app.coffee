@@ -35,6 +35,10 @@ App = {
       Content,
       
       m.component(Footer, {
+        preview: "We've now learned enough about Mithril
+                  to create a multi page app with
+                  links to individual lessons.
+                  We'll put it all together in the next lesson.",
         nextLesson: "A Todo App",
         gitBranch: "cs-lesson5"
       })

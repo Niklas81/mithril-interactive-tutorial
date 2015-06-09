@@ -1,7 +1,7 @@
 <div id="example"></div>
 <p>This menu is the demo from the Mithril home page. The code has been
 slightly adapted to work with the tutorial. It's a component like any
-other. While Header, Content and Footer are nested components under App,
+other. While Logo, Header, Content and Footer are nested components under App,
 the demo was injected after this page was rendered.</p>
 
 <div class="dothis">Refresh the browser and watch the demo load (quickly) after
@@ -22,21 +22,20 @@ in 2 ways.
 <ul>
 
   <li>It's an <code>m.prop()</code> <strong>getter/setter</strong>
-  <a href= "http://lhorie.github.io/mithril/mithril.prop.html"
-target="_blank" class="docs-icon"></a>
-  <p>
-  <code>toggle = m.prop()</code><code class="comment"> //create an m.prop</code><br>
-  <code>toggle("on")</code><code class="comment"> //set: toggle === "on"</code><br>
-  <code>toggle()</code><code class="comment"> //get: returns "on"</code>
-  </p>
-</li>
+    <a href= "http://lhorie.github.io/mithril/mithril.prop.html"
+      target="_blank" class="docs-icon"></a>
+    <pre>
+toggle = m.prop("")  // create: toggle === ""
+toggle("on")         // set: toggle === "on"
+toggle()             // get: returns "on"</pre>
+  </li>
 
   <li>It returns a <strong>promise</strong>
-<a href= "http://lhorie.github.io/mithril/mithril.deferred.html"
-target="_blank" class="docs-icon"></a>
-  <p>
-  <code>pages()</code><code class="comment"> //get: returns a promise</code>
-  </p></li>
+    <a href= "http://lhorie.github.io/mithril/mithril.deferred.html"
+      target="_blank" class="docs-icon"></a>
+    <pre>
+posts = reqResp()  // posts.then(do something)</pre>
+  </li>
 
 </ul>
 
@@ -48,14 +47,20 @@ result to the <code>pages</code> variable.
 </p>
 <p>An AJAX call is relatively slow, so <code>pages</code> is set to
 a promise, an empty placeholder that will be filled as soon as
-<code>m.request()</code> returns. This allows the component to start
+<code>m.request()</code> returns with data. This allows the component to start
 loading even when it doesn't have all the data. The app feels faster
-and more responsive.
+and more responsive. When you refresh this page, there is stuff to read
+while you're waiting for the Demo to grab the list of links from the server
+and display them.
 </p>
-<p><code>pages</code> is also an <code>m.prop()</code> getter/setter.
+<p>
+The return value of <code>Page.list()</code> is an <code>m.prop()</code>
+getter/setter so now "pages" is a getter/setter.
 To retrieve its value we must call <code>pages()</code> with no parameters. It's
-called twice in the view. Calling a getter/setter does not automatically
-update the view.</p>
+called twice in the view.
+<span class="error">Calling a getter/setter does not automatically
+update the view.</span>
+</p>
 <p>App.controller also contains one incredibly useful function:
 <code>rotate()</code> 😄</p>
 
@@ -66,12 +71,12 @@ Then the view is called with the controller object as its first argument (ctrl).
 When the view function is called, Mithril will throw an error if
 <code>ctrl.pages()</code> returns a null value, so we test it.
 If <code>m.request()</code>
-has returned with a response, we map the JSON to our template.
+has returned with a response, we map the JSON data to our template.
 If there is no response yet: <code>pages&nbsp;===&nbsp;null</code>, we return
 a "loading..." message for slow connections.</p>
 
 <p>When <code>m.request()</code> returns with the AJAX response,
-the view is called again and the
+Mithril calls the view again and the
 screen is updated with the new data: The "loading..." message is replaced
 with our demo component.</p>
 
@@ -79,10 +84,11 @@ with our demo component.</p>
 <p>Lets recap each step after showDemo is called:
 <ul>
 <li>Demo is initialized in <code class="file">app.coffee</code></li>
-<li>Initialization means that Demo.controller is called</li>
-<li>Demo.controller calls the <code>list</code> function in the model (Page)</li>
-<li><code>list</code> immediately returns a getter/setter with an empty promise</li>
-<li>The view is called even though <code>list</code> has not returned</li>
+<li>Initialization means that Demo.controller is called:
+<code class="file">Demo.coffee</code></li>
+<li>Demo.controller calls the <code>list()</code> function in the model (Page)</li>
+<li><code>list()</code> immediately returns a getter/setter with an empty promise</li>
+<li>The view is called even though <code>list()</code> is empty</li>
 <li>The component is rendered to the screen without necessary data</li>
 <li>The AJAX request completes then forces a redraw (view is called)</li>
 <li>The redraw fills in the missing data on the screen</li>
@@ -97,12 +103,12 @@ with our demo component.</p>
 
 
 <div class="dothis">Read the comments in
-<code class="file">Demo.coffee</code> and
 <code class="file">app.coffee</code> and
-<code class="file">Content.coffee</code> and
+<code class="file">Demo.coffee</code> and
+<code class="file">Logo.coffee</code> and
 <code class="file">Footer.coffee</code></div>
 
-<hr>
-
-We've now learned enough about Mithril to create a multi page app with
-links to individual lessons. We'll put it all together in the next lesson.
+<div class="dothis">
+Check out this stripped down version:
+<a class="ex" href="http://jsbin.com/lerewe/4/edit?js,output" target="_blank"></a>
+</div>
