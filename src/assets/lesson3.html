@@ -1,4 +1,32 @@
-<p>If the view could only hold static data, there would be no need
+<!-- M.I.T. - Lesson 3 - Passing Data to the View
+
+We saw in previous lessons, incorporating large amounts of text
+into our app can be an ugly proposition. In this lesson we have
+taken advantage of a browserfy plugin called stringify. It allows
+us to "require" an HTML file (this file) which is added to
+bundle.js like any other javascript file. This allows us to compose
+our text in familiar HTML.
+
+See the "require" statement in app.coffee.
+
+Notice we must wrap raw HTML in an m.trust call. If you don't
+have control over your server you may be risking injection of
+malicious code. 
+
+One important disadvantage of this technique is that the HTML is static.
+We cannot take advantage of Mithril variables and functions from within
+this file.
+
+Try these templating options:
+https://github.com/lhorie/mithril.js/wiki/Community-Projects#templating
+
+If you'd like to mix HTML into your Mithril views, try MSX.
+It's just like React's JSX.
+
+-->
+
+<p>If the view could only hold static information,
+there would be no need
 to learn Mithril. We can funnel data into the view from several
 sources. As we shall see, the view can print the data or alter it
 to enhance its presentation.</p>
@@ -9,28 +37,46 @@ target="_blank" class="docs-icon"></a>
 
 <h3>Data from the contoller</h3>
 <div class="dothis">see src/app.coffee</div>
-<p>In addition to the <strong>view function</strong>, a component
-often contains a <strong>controller function</strong>. Like the
-view, it returns an object.</p>
+<p>In addition to the <strong>view method</strong>, a component
+often contains a <strong>controller method</strong>
+which returns an object.</p>
 <p>Although there are intermediate steps that we'll cover later,
 program flow is generally like this:<br>
 <code>m.mount(el, App) -&gt; App.controller() -&gt; App.view()
 -&gt; browser</code><br>
 Note that if the controller is omitted, in the background Mithril
-supplies one equal to a function that returns an empty object.
-Among the controller's many responsibilities, it may pass data to
-the view. This happens automatically. The view receives the
+supplies one equal to a function that returns an empty object.</p>
+<p>
+The controller is called only once in the lifetime of a component. 
+It can function like a class constructor, initializing the component
+with data and functions. The controller object is
+automatically passed to the view. The view receives the
 returned object from the controller as a parameter. By convention,
 we call it <strong>ctrl</strong>.</p>
-<p>In the code, the controller supplies data to the view in the
-object key/value pair: <code>displayLogo: true</code>, a boolean
-switch that turns the Logo component on and off. The view accesses
-it in the passed-in object: <code>ctrl.displayLogo</code>, then
-displays the Logo depending on it's value.</p>
+<pre>
+Component = {
+  controller: function(){
+    return {
+      data: [4,8,16],
+      add: function(a,b){ return a+b }
+    }
+  },
+  view: function(ctrl){
+    return m("div", ctrl.add( ctrl.data[0], ctrl.data[1] ) )
+  }
+}
+// <&zwj;div>12<&zwj;/div>
+<a class="ex" href="http://jsbin.com/gufose/3/edit?js,output" target="_blank"></a>
+</pre>
+<p>In <code class="file">app.coffee</code>, the controller supplies data
+to the view in the object property: <code>displayContent: true</code>, a boolean
+switch that turns the Content component on and off. The view accesses
+it from the passed-in object with: <code>ctrl.displayContent</code> and
+displays Content depending on it's value.</p>
 
-<div class="dothis">change the value of displayLogo from true to
+<div class="dothis">Change the value of displayContent from true to
 false. With the cursor still in the editor, save the file CTRL-S or
-CMD-S, and watch the logo at the top of the page disappear.</div>
+CMD-S.</div>
 
 <a href=
 "http://lhorie.github.io/mithril/mithril.component.html#parameterized-components"
@@ -38,22 +84,31 @@ target="_blank" class="docs-icon"></a>
 
 <h3>Component agruments</h3>
 <p>It's possible to pass arguments to a component before it's
-rendered to the virtual DOM using the method: m.component.
-An "args" object is passed to both the
-controller and the view. A common technique is to provide default values
-within the component and optionally override those defaults in the
-arguments object.</p>
+rendered to the virtual DOM using the method: <code>m.component()</code>.
+An "args" object is automatically passed to both the
+controller and the view. A common idiom is to provide default values
+within the component definition and optionally override those defaults when
+calling <code>m.component()</code>.
+</p>
 
-<code class="comment">// App.view</code><br>
-<code>m.component(Header, {title: "Lesson 3"})</code><br>
-...<br>
-<code class="comment">// Header</code><br>
-<code>controller: function(args){... //args.title = "Lesson 3"</code><br>
-<code>view: function(ctrl, args){... //args.title = "Lesson 3"</code>
+<pre>
+// App.view
 
-<div class="dothis">see src/app.coffee. Notice how m.component()
-is called with 2 arguments. 'Header' and an optional object with
-'title' and 'subtitle' as keys.</div>
+m.component(Header, {title: "Lesson 3"})
+
+...
+
+// Header Component
+
+controller: function(args){},   //args.title = "Lesson 3"
+view: function(ctrl, args){}   //args.title = "Lesson 3"
+</pre>
+
+<div class="dothis">See <code class="file">app.coffee</code>.
+Notice how m.component()
+is called with 2 arguments. The component 'Header' and an object with properties
+'title' and 'subtitle', overriding the defaults in 
+<code class="file">Header.coffee.</code></div>
 
 <div class="dothis">see src/components/Header.coffee</div>
 
@@ -63,22 +118,37 @@ target="_blank" class="docs-icon"></a>
 
 
 <h3>Data Model</h3>
-<p>In MVC, M is for model, V is for view, and C is for controller. Now let's
-look at the role the model plays in supplying data to the view.</p>
-<p>The model acquires data from an outside source and passes it on to the rest
-of our app. Data could come from a
-<a href="http://rest.elkstein.org/2008/02/what-is-rest.html">REST</a>-ful
-connection to a database, a websocket, the browser's localstorage, or any
-type of web service like Twitter or Google Maps.
-In this lesson we are going to hard code the data in the model object.</p>
+<p>In MVC, M is for model, V is for view, and C is for controller.
+When we refer to the Model we are referring to the <strong>data</strong>
+model of our app.
+We will cover the view-model later. Now let's look at the role
+the model plays in supplying data to our app.</p>
+
+<p>
+Generally, the Model holds a data structure
+and optionally, methods that alter
+or provide access to that data. The data structure may be predefined,
+populated through an AJAX call, initiallized with stored browser data,
+or start out empty, waiting for user input.
+In this lesson we are going to hard code the data in a model object.</p>
 
 <div class="dothis">See src/components/Footer.coffee</div>
 
 <p>The model is usually an object with data properties and possibly
-functions that massage the data. It can be internal to a component,
-but it's often defined outside to give data access to a controller, a view,
-and even other components. </p>
-<hr>
-<p>In the next lesson we'll see MVC in action. We'll learn how to control
-the flow of data through our app: how to retrieve it from the server,
-display it on the screen, and receive input from user interaction.</p>
+functions that massage the data. It can be internal to a component
+or it can live in an outer scope allowing access
+to a controller, various views,
+and even multiple components. </p>
+
+<div class="dothis">
+Review the comments in
+<code class="file">app.coffee</code>,
+<code class="file">Logo.coffee</code>,
+<code class="file">Header.coffee</code> and
+<code class="file">Footer.coffee</code>.
+</div>
+<div class="dothis">
+At the top of 
+<code class="file">src/assets/lesson3.html</code>
+learn how raw HTML was inserted into this page.
+</div>

@@ -13,7 +13,9 @@ Footer = require "./components/Footer.coffee"
 # Our app requires a lot of good old HTML,
 # so we move it into it's own file: src/assets/lesson3.html
 # and require it here. Browserify, with the help of the stringify transform,
-# will include it in bundle.js. If your app is not text-heavy
+# will include it in bundle.js. 
+# Read all about it in lesson3.html.
+# If your app is not text-heavy
 # you should not need this extra step.
 # There are other ways to include large amounts of markup that we'll
 # cover later.
@@ -35,7 +37,7 @@ App = {
 
   controller: () ->
     return {
-      displayLogo: true
+      displayContent: true
     }
 
 # Mithril automatically inserts the ctrl object.
@@ -43,15 +45,21 @@ App = {
   view: (ctrl) -> 
     return m(".page", [
 
-# to print or not to print
-      if ctrl.displayLogo then m.component(Logo) else "",
+      Logo,
 
 # m.component() takes an object as a second argument. It is passed to the
 # Header component. See Header.coffee
       
-      m.component(Header, {title: "Lesson 3", subtitle: "Passing Data to the View"}),
-      Content,
+      m.component(Header, {
+        title: "Lesson 3", 
+        subtitle: "Passing Data to the View"
+      }),
+
+# to print or not to print
+      if ctrl.displayContent then m.component(Content) else "Oops! You'd better switch it back",
+       
       Footer
+
     ])
 }
 
