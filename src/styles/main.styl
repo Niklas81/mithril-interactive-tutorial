@@ -1,8 +1,8 @@
 ::-webkit-scrollbar
-    display: none; 
+    display: none;
 p
   margin: 10px 0
-  
+
 .page
   width: 480px
   margin: 0 auto
@@ -21,7 +21,7 @@ p
 
   .mithril
     float: right
-    margin-right: 5px
+    margin: 0 5px
     font-size: 1.5rem
     font-family: Georgia
     font-style: italic
@@ -43,7 +43,7 @@ p
     position: absolute
     margin: -0.17em 0 0 -0.5em
 
-  .mit:hover, .mithril:hover, .icon:hover
+  .mit:hover, .mithril:hover
     color: lightblue
     text-decoration: none
 
@@ -55,19 +55,26 @@ p
 .header
   margin-bottom: 15px
 
+.header .intro
+  font-size: .9em
+  font-weight: bold
+
+.content .mit-panels
+  overflow: hidden
+
 .footer
   margin-top: 15px
 
 .dothis
   margin: 20px 30px 20px 20px
   color: #5a5
-  background-color: lightgoldenrodyellow 
+  background-color: lightgoldenrodyellow
   font-weight: 800
   padding: 10px
   font-family: monospace
 
 .dothis::before
-  content: "☞ "  
+  content: "☞ "
 
 code.file
   color: lightseagreen
@@ -93,6 +100,35 @@ a.docs-icon:hover
   border-color: crimson
   text-decoration: none
 
+a.ex
+  background: #5a5;
+  color: #fff;
+  padding: 3px;
+  margin: 0 3px;
+  width: 10px;
+  height: 10px;
+  font-size: .9rem;
+
+a.ex::before
+  content: "EXPL"
+
+a.ex:hover
+  background-color: crimson
+  text-decoration: none
+
+.error
+  background-color: crimson
+  color: #fff
+  padding: 0 3px
+
+.reminder
+  margin: 0 auto
+  text-align: center
+  background: blue
+  color: aliceblue
+  font-size: .8em
+  padding: 2px 5px
+
 .menu
   background: #ffe
   border: 1px solid #ddd
@@ -107,7 +143,7 @@ a.docs-icon:hover
   margin:0 0 10px
 
 .footer .preview
-  margin: 15px 15px 0 15px
+  margin: 15px
   font-size: small
 
 .footer h2.title
@@ -124,6 +160,10 @@ a.fwd::after
   margin-right: 5px
   font-size: 4rem
   line-height: 65px
+  color: #5a5
+
+a.fwd:hover::after
+  color: crimson
 
 a.rev
   float: left
@@ -147,6 +187,10 @@ a.rev::after
   -ms-transform:rotateY(180deg)
   unicode-bidi:bidi-override
   direction:rtl
+  color: #5a5
+
+a.rev:hover::after
+  color: crimson
 
 .todo
   background-color: lightblue
@@ -156,3 +200,29 @@ a.rev::after
 
 .todo input[type=checkbox]
   margin-right: 5px
+
+#example + p
+  width: 50%
+  height: 160px
+  margin-top: 20px
+
+#example
+  float: right
+  clear: right
+  width: 50%
+  height: 160px
+
+.example
+  background: #ffe
+  border: 1px solid #ddd
+  display: block
+  font: Courier New
+  margin-bottom: 20px
+  padding: 5px 10px
+
+.example a
+  display:block
+  margin:0 0 10px
+
+.example a:after
+  content:" \bb"

@@ -18,6 +18,8 @@ module.exports = {
     nextUrl = if args and args.nextUrl then args.nextUrl else model.nextUrl
   
     return m(".footer", [
+      m(".reminder", "Read Comments"),
+      m(".reminder", "Close editor tabs"),
       m("p.preview", preview),
       if args.prevUrl then m("a.rev", {href: args.prevUrl}, "") else m(""),
       m("h2.title", title + nextLesson),
@@ -30,5 +32,4 @@ module.exports = {
     ])
 }
 
-
-
+# We've embedded a menu component inside the Footer

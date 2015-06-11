@@ -13,7 +13,7 @@ App = {
   view: () ->
     return m(".page", [
       
-      m.component(Logo),
+      m.component(Logo, {lesson: "cs-lesson5"}),
       
       m.component(Header, {
         title: "Lesson 5.1",
@@ -27,7 +27,7 @@ App = {
       m.component(Footer, {
         preview: "Before we can add a task we need a place to store
           the data. In earlier lessons we used the model as a source
-          for our data. Now we are going to use it for storage.",
+          for our data. Now we are going to use it to store user input.",
         nextLesson: "5.2 - The Model",
         nextUrl: "/lesson5.2",
         prevUrl: "/"

@@ -1,5 +1,6 @@
 <p>
-  Our Todo List begins life with no tasks. Input will come from the user through the View and 
+  Our Todo List begins life with no tasks. Input will come from
+  the user through the View and 
   we'll store new tasks in a Model. 
 </p>
 
@@ -18,19 +19,21 @@
 <li>todo.TodoList -- an array of Todos for display in the View</li>
 </ul>
 
-<p>Each instance of the Todo class will store a description (string) of one task.</p>
+<p>Each instance of the Todo class will store a description (string)
+of one task.</p>
 
 <p>Beyond storing data, the Model is also responsible for 
-managing component state.
-In our case, we need the Model to keep track of the "done" state of each Todo.
+managing data state.
+In our case, we need the Model to keep track of the "done" state of each todo.
 When the user checks a task, "done" is set to true.</p>
 <code>done("true")</code>
-<p>A boulean switch like done/not-done is a perfect case for using an m.prop getter/setter.
-An input checkbox both sets and display the "done" state.</p>
+<p>A boolean switch like done/not-done is a perfect case for using an
+<code>m.prop()</code> getter/setter.
+An input checkbox both sets and displays the "done" state.</p>
 
 <p>
-  The TodoList is where we will store Todo instance objects added when the user
-  adds a new task.
+  The TodoList is where we will store Todo instance objects when the user
+  inputs a new task.
 </p>
 
 

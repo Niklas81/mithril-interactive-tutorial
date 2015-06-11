@@ -2,12 +2,24 @@
   "name": "mithril-interactive-tutorial",
   "version": "0.0.1",
   "description": "Step-by-step lessons on using the Mithril MVC framework",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pelonpelon/mithril-interactive-tutorial.git"
+  },
+  "keywords": [
+    "mithril",
+    "MVC",
+    "framework",
+    "M.I.T",
+    "tutorial",
+    "interactive"
+  ],
   "main": "app.js",
   "scripts": {
-    "tutorial": "npm run clean-build; npm run make-directories; npm run copy-assets && npm run copy-lessons && npm run copy-html; npm run watch-js & npm run watch-stylus & npm run browser-sync",
+    "tutorial": "npm run clean-build; npm run make-directories; npm run copy-assets && npm run copy-html && npm run copy-lessons; npm run watch-js & npm run watch-stylus & npm run browser-sync",
     "clean-build": "rm -rf build/*",
-    "make-directories": "mkdir build/styles",
-    "copy-assets": "cp -Rf src/assets build/",
+    "make-directories": "mkdir -p build build/styles src/assets",
+    "copy-assets": "cp -Rf src/assets build/ && cp -Rf node_modules/bootstrap/dist/css/bootstrap.min.css build/styles/",
     "copy-html": "cp -Rf src/*.html build/",
     "copy-lessons": "cp -Rf src/lesson* build/",
     "browser-sync": "cd ./build && browser-sync start --config=../bs-config.js",
@@ -22,7 +34,8 @@
     "mithril": "~0.2.0",
     "stringify": "~3.1.0",
     "factor-bundle": "~2.3.3",
-    "browser-sync": "~2.7.1"
+    "browser-sync": "~2.7.1",
+    "bootstrap": "~3.3.4"
   },
   "author": "pelonpelon",
   "license": "MIT"

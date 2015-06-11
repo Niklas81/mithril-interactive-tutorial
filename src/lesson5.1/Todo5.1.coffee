@@ -6,31 +6,25 @@ m = require "mithril"
 todo = {}
 
 todo.view = ->
-    m(".todo",
+    m ".todo",
     [
-      m("h4.title", "My Todo List"),
-      m("input")
-      m("button", "Add")
-      m("table", [
-        m("tr", [
-          m("td",
+      m "h4.title", "My Todo List"
+      m "input"
+      m "button", "Add" 
+      m "table", [
+        m "tr", [
 
-          # HTML attributes belong in brackets next to the tag
+          m "td"
+            m "input[type=checkbox]"
 
-          [
-            m("input[type=checkbox]")
-          ])
-          m("td", {
+          m "td", {
 
-          # Don't add CSS unless it's essential to the functionality
-          # of your component:
-
-              style: {fontFamily: "fantasy"}
+              style: { fontFamily: "fantasy" }
               
-          },
-          "task description")
-        ])
-      ])
-    ])
+          }, "task description"
+          
+        ]
+      ]
+    ]
 
 module.exports = todo

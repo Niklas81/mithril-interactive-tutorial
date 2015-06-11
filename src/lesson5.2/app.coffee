@@ -13,7 +13,7 @@ App = {
   view: () ->
     return m(".page", [
 
-      m.component(Logo),
+      m.component(Logo, {lesson: "cs-lesson5"}),
 
       m.component(Header, {
         title: "Lesson 5.2",
@@ -25,8 +25,10 @@ App = {
       m.component(Todo),
 
       m.component(Footer, {
+
         preview: "We need a way to connect the Model data with our View. We'll use a Controller
         to funnel input and output between them and optionally manipulate the data as it passes through.",
+        
         nextLesson: "5.3 - The Controller",
         nextUrl: "/lesson5.3"
         prevUrl: "/lesson5.1"

@@ -1,4 +1,4 @@
-# Lesson 5 - Getting Started
+# Lesson 5 - A Todo List Component
 
 m = require "mithril"
 
@@ -13,7 +13,9 @@ App = {
   view: () ->
     return m(".page", [
 
-      Logo,
+      m.component(Logo, {
+        lesson: "cs-lesson5"  
+      }),
 
       m.component(Header, {
         title: "Lesson 5",
@@ -25,9 +27,11 @@ App = {
       Todo,
 
       m.component(Footer, {
+
         preview: "We'll begin by creating a prototype of our component. Don't
         forget to close all open files in the editor to avoid confusing them
         with the next step. [right-click on a file tab to close all]",
+        
         title: "Next Lesson: ",
         nextLesson: "5.1 - The View",
         nextUrl: "/lesson5.1/",

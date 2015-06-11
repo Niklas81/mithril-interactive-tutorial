@@ -1,7 +1,15 @@
-<p>The Controller decides what data in our Model should be available to the View. It may
-optionally manipulate that data as it passes through. The Controller can also pass input
-coming from the View back to the Model. In the next lesson we'll learn to simplify our
-controller.
+<p>There are many ways to configure a controller. We can give it as
+much or as little resposiblity as we wish. Our finished Todo List
+practically ignores it. One development style is to
+begin by building app logic into the controller,
+then refactoring that resposiblity to other parts of the app.
+That's the course we'll take in this lesson.
+</p>
+</p>
+Our Controller decides what data in our Model should be available to the View.
+It could optionally manipulate the data as it passes through,
+but we don't need that functionality. The Controller can also pass input
+coming from the View back to the Model.
 <a class="docs-icon"
    href="http://mithril.js.org/getting-started.html#controller"
    target="_blank">
@@ -9,7 +17,7 @@ controller.
 </p>
 
 <div class="dothis">
-  src/components/Todo5.3.coffee
+  src/lesson5.3/Todo5.3.coffee
 </div>
 
 <h3>Data Binding</h3>
@@ -19,22 +27,36 @@ controller.
 </a>
 <p>Our controller is responsible for passing data back and forth
 between the model and the view. The <code>ctrl.add</code> method takes a
-description from the text input, instantiates a new
+description from the text input, instantiates a new instance of
 <code>todo.Todo</code> with that description, and adds it
 to our <code>todo.TodoList</code>.
 </p>
 <p>
-The input "value" attribute is set when the
-Add button is clicked. We handle this by binding "value" to the result of 
-<code>ctrl.description()</code>. After
-<code>ctrl.add</code> pushes a new todo on the list, it resets the
-description to an empty string. Since the input "value" attribute is bound
-to the description getter/setter, it becomes an
-empty string as well. The input text area is blank again.
+<h4>The Story</h4>
+The user inputs a todo, which is bound to the input element's
+<strong>value</strong> attribute.
+With every key press the onchange event fires, causing the 
+description to be updated to the current text in the input box:
+<pre>
+//updates description on every key press
+
+ctrl.description(value)
+</pre>
+When the user completes the entry, the Add button is clicked.
+<br /><code>ctrl.add</code> pushes a new todo on the list
+<strong>and</strong> sets the description to an empty string:
+<pre>
+//resets after entry is safely stored
+ 
+ctrl.description("")
+</pre>
+which simultaneously clears the input box.
+We don't need it anymore because it's been packaged in a todo.Todo
+which was pushed onto the todo.TodoList array.
 </p>
 <p>
 <h3>Bi-Directional Data Flow</h3>
-The Model must be updated as well. This requires the mithril function
+The Model must be updated as well. This requires the Mithril function
 <code>m.withAttr()</code> which is explained thoroughly
 in the comments in the source code.
 <a class="docs-icon" href="http://lhorie.github.io/mithril/mithril.withAttr.html" target="_blank"></a>
@@ -47,5 +69,3 @@ in the comments in the source code.
 <p>
 Try out our working Todo List.
 </p>
-
-

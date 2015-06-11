@@ -13,20 +13,29 @@ view-model.
   src/components/Todo5.4.coffee
 </div>
 <p>
-There are many definitions of the MVC paradigm. The role of the Model might be
-the most controversial. One approach is to make the model the single source
-of authority for all data state and view state.
-Our model will have these responsibilities:
+There are many definitions of the MVC paradigm. The role of the Model
+might be the most controversial. One approach is to make the model
+the single source
+of truth for all data state and view state.</p>
+
+Our data model has these responsibilities:
 <ul>
   <li>Store data in memory</li>
   <li>Maintain the state of the data</li>
-  <li>Receive data from the UI</li>
-  <li>Maintain the state of the UI</li>
 </ul>
-In a real world scenario, data would be served-from and save-to some sort of
-database on a server. We've already learned how to get json data
-with m.request(). We'll learn to save data to the server in a later lesson.
-The view-model would be resposible for making this happen.
+Our view-model will have these responsibilities.
+<ul>
+  <li>Receive data from the UI</li>
+  <li>Keep the view state in sync with the data Model</li>
+</ul>
+
+<p>
+In the previous step, the controller provided the view's only access
+to the data. We are going to move that responsiblity to a view-model.
+Our view-model will provide an API with which the view can add todos
+to the model, retrieve the list of todos and communicate to the model
+that the user has marked a todo as done. Since each of these things
+are reflected in the UI, the view-model is the appropriate place for them.
 </p>
 <p>
 This lesson is primarily contained in the code comments.
@@ -39,8 +48,8 @@ in <code class="file">Todo5.4.coffee</code> and feel free to play around.
 Open the console<br>(ESC while the cursor is in the editor window)
 <h5>Try the following commands:</h5>
 <p>
-todo.vm.description("breathe more air")
-todo.vm.add(todo.vm.description)
+todo.vm.description( "breathe more air" )
+todo.vm.add( todo.vm.description() )
 todo.vm.list.length
 todo.vm.list[0].description()
 </p>

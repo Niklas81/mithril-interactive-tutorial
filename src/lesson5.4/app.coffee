@@ -27,15 +27,15 @@ App = {
       m.component(Footer, {
         preview: "In Lesson 5 we have learned to create a basic
         component. Each page of Lesson 5 is a full app constructed with
-        several layered
+        several nested
         components. We moved step-to-step by clicking on links and loading
-        new pages. Next we will learn how to build a Single Page App (SPA) that
-        loads once but instantly redraws the screen
+        new pages. Next we will learn how to build a Single Page App (SPA)
+        that loads once but can instantly redraw the screen
         to give the illusion of separate pages.",
         title: "Next Lesson: ",
         nextLesson: "6 - Single Page App",
-        nextUrl: "",
-        prevUrl: "/lesson5.2"
+        nextUrl: "/lesson6",
+        prevUrl: "/lesson5.3"
       })
 
     ])
