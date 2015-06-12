@@ -2,33 +2,27 @@ m = require "mithril"
 
 Content = {}
 
-Content.model = {
-  lessonNum: m.prop("0")
-  content: m.request(method: "GET", url: "lesson" + Content.model.lessonNum() + ".html") 
-}
-
 Content.vm = (->
   vm = {}
   vm.init = ->
-    model.content.then (content)->
-      vm.html = content
+    vm.getContent = (page)->
+      vm.content = m.request(method: "GET", url: page + ".html") 
+    vm.page = m.prop("home")
   return vm
 )()
 
-module.exports = {
-  
-  controller: (args)->
-    Content.vm.init()
+Content.controller = (args)->
+  Content.vm.init()
 
-  view: (ctrl, args)->
-    html = if args and args.html then args.html else model.html
-    lessonNum = if args and args.lessonNum then args.lessonNum else model.lessonNum
+Content.view = (ctrl, args)->
+  page = if args and args.page then args.page else model.page
+  return Content.vm.getContent(page).then((content)->
+    m( ".content", m.trust(content) )
+  )
 
-    return m( ".content", m.trust(Content.vm.html) )
-}
 
-#### WARNING: Using m.trust() is risky. If the html above contains
-#### malicious <script> tags, they will run with full permissions.
+
+module.exports = Content
 
 
 
