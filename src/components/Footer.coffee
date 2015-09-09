@@ -29,7 +29,7 @@ module.exports = {
         m("li", m.trust("In the terminal, stop the tutorial with
           <code>CTRL-C</code> or <code>CMD-C</code>.")),
         m("li", m.trust("Reset: <code>git stash</code>.")),
-        m("li", m.trust("Change Lesson: <code>git co " + model.lesson + "</code>.")),
+        m("li", m.trust("Change Lesson: <code>git checkout " + model.lesson + "</code>.")),
         m("li", m.trust("Restart the tutorial: <code>npm run tutorial</code>"))
       ])
     ])
