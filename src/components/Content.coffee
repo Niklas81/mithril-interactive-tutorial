@@ -1,24 +1,28 @@
 m = require "mithril"
 
+
+
 Content = {}
 
-Content.vm = (->
-  vm = {}
-  vm.init = ->
-    vm.getContent = (page)->
-      vm.content = m.request(method: "GET", url: page + ".html") 
-    vm.page = m.prop("home")
-  return vm
-)()
+Content.getContent = (page)->
+  console.log 'getting content'
+  return m.request
+    method: "GET"
+    url: "assets/lesson" + page + ".html"
+    deserialize: (html)-> html
+
+Content.page = m.prop("home")
 
 Content.controller = (args)->
-  Content.vm.init()
+  console.log 'controller'
 
 Content.view = (ctrl, args)->
-  page = if args and args.page then args.page else model.page
-  return Content.vm.getContent(page).then((content)->
-    m( ".content", m.trust(content) )
-  )
+  page = if args and args.num then args.num else Content.page()
+  return m ".content",
+    Content.getContent(page)
+      .then (content)->
+        console.log 'content', content
+        m.trust content 
 
 
 

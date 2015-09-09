@@ -1,3 +1,11 @@
 [
-{"num": "6.1", "mitUrl": "https://github.com/pelonpelon/mithril-interactive-tutorial/tree/cs-lesson6.1", "title": "Lesson 6.1", "subtitle": "Routes", "intro": "", "content": "", "preview": "" }
+  {
+  "num": "6.1",
+  "mitUrl": "https://github.com/pelonpelon/mithril-interactive-tutorial/tree/cs-lesson6.1",
+  "title": "Lesson 6.1",
+  "subtitle": "Routes",
+  "intro": "<p>This is the intro</p>",
+  "content": "<p>This is contnent</p>",
+  "preview": "<p>Preview</p>"
+  }
 ]

@@ -41,6 +41,9 @@ App.controller = (args)->
 
 App.view = (ctrl, args)->
   return [
+    Logo,
+    Header,
+    args.Home,
     m "div", "App"
     m "div", args
   ]
@@ -48,32 +51,33 @@ App.view = (ctrl, args)->
 Home = {
   view: (ctrl, args)->
     console.log 'App:', App
-    console.log 'view'
+    console.log 'Home view'
 
-    lesson = App.vm.getLesson(0)
+    lesson = App.vm.getLesson "6.1"
+    console.log 'lesson', lesson
 
     return m ".page", [
 
-      m.component Logo,
-          mitUrl: lesson.mitUrl
+      # m.component Logo,
+          # mitUrl: lesson.mitUrl
 
-      m.component Header,
-        title: lesson.title
-        subtitle: lesson.subtitle
-        intro: "In previous lessons we moved page-to-page within
-        the tutorial application in the standard way:
-        by clicking on links which caused the browser to fully refresh
-        loading a new URI. This lesson is comprised of several pages, yet
-        it's self contained, requiring no new requests from the server.
-        However, the browser location bar will change with each
-        aparent page change. Pages can be linked to and bookmarked, while
-        the back button will work as expected."
+      # m.component Header,
+        # title: lesson.title
+        # subtitle: lesson.subtitle
+        # intro: "In previous lessons we moved page-to-page within
+        # the tutorial application in the standard way:
+        # by clicking on links which caused the browser to fully refresh
+        # loading a new URI. This lesson is comprised of several pages, yet
+        # it's self contained, requiring no new requests from the server.
+        # However, the browser location bar will change with each
+        # aparent page change. Pages can be linked to and bookmarked, while
+        # the back button will work as expected."
 
-      m.component Content,
-        num: lesson.num
+      # m.component Content,
+        # num: lesson.num
 
-      m.component Footer,
-        preview: lesson.preview
+      # m.component Footer,
+        # preview: lesson.preview
 
     ]
 }
