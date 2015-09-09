@@ -54,7 +54,7 @@ module.exports = {
 
         m "li", m.trust "Reset: <code>git stash</code>"
         
-        m "li", m.trust "Next lesson: <code>git co " + gitBranch + "</code>"
+        m "li", m.trust "Next lesson: <code>git checkout " + gitBranch + "</code>"
 
         m "li", m.trust "Restart the tutorial: <code>npm run tutorial</code>"
       ]
