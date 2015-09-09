@@ -181,7 +181,7 @@ Footer = {
         m("li", m.trust("In the terminal, stop the tutorial with
           <code>CTRL-C</code> or <code>CMD-C</code>")),
         m("li", m.trust("If you edited the code, reset with: <code>git stash")),
-        m("li", m.trust("Enter <code>git co cs-lesson3</code>")),
+        m("li", m.trust("Enter <code>git checkout cs-lesson3</code>")),
         m("li", m.trust("Restart the tutorial with 
           <code>npm run tutorial</code>"))
       ])
