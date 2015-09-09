@@ -38,7 +38,7 @@ App = {
         m("p", [
           "This tutorial is located on Github.
           If you have not read the README file, ",
-          m("a[href=https://github.com/pelonpelon/mithril_tutoral]",
+          m("a[href=https://github.com/pelonpelon/mithril_tutorial]",
             "go there now before continuing.")
         ]),
         m("h3.requirements", "Requirements"),
