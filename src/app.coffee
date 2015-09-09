@@ -155,7 +155,7 @@ App = {
           ]),
           m("li", [
             "Load the first lesson by entering:",
-            m("p", m("code", "$ git co cs-lesson1"))
+            m("p", m("code", "$ git checkout cs-lesson1"))
           ]),
           m("li", [
             "Restart the tutorial by entering:",
